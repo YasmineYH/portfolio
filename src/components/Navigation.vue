@@ -1,8 +1,8 @@
 <template>
     <nav>
         <ul v-show="!mobile">
-            <li class="normal-p"><router-link class="link" to="/">My Projects</router-link></li>
-            <li class="normal-p"><router-link class="link" to="BookMe">Book Me</router-link></li>
+            <li class="normal-p"><router-link class="link" :to="{ name: 'MyProjects'}">My Projects</router-link></li>
+            <li class="normal-p"><router-link class="link" :to="{ name: 'BookMe'}">Book Me</router-link></li>
         </ul>
 
         <router-link class="logo" to="/">
@@ -20,8 +20,8 @@
         <transition name="mobile-nav">
 			<div class="mobile-nav" v-show="mobileNav">
 				<ul class="mobile-nav-text">
-                    <li class="normal-p"><router-link class="link" to="#">My Projects</router-link></li>
-                    <li class="normal-p"><router-link class="link" to="BookMe">Book Me</router-link></li>
+                    <li class="normal-p"><router-link class="link" to="myprojects">My Projects</router-link></li>
+                    <li class="normal-p"><router-link class="link" to="bookme">Book Me</router-link></li>
                 </ul>
 
                 <ul class="mobile-nav-icons">

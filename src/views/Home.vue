@@ -3,11 +3,25 @@
 		<h1 class="home-h1">Web |  UI Designer</h1>
 
 		<div class="header-graphic">
-			<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
-			<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
-			<img :src="require('@/assets/project-images/diem.png')" alt="Diem Project Image">
-			<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
-			<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
+			<router-link class="link" :to="{ name: 'Project'}">
+				<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
+			</router-link>
+
+			<router-link class="link" :to="{ name: 'Project'}">
+				<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
+			</router-link>
+
+			<router-link class="link" :to="{ name: 'Project'}">
+				<img :src="require('@/assets/project-images/diem.png')" alt="Diem Project Image">
+			</router-link>
+
+			<router-link class="link" :to="{ name: 'Project'}">
+				<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
+			</router-link>
+
+			<router-link class="link" :to="{ name: 'Project'}">
+				<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
+			</router-link>
 		</div>
 
 		<div class="tools">
@@ -76,6 +90,37 @@
 			</div>
 
 			<button @click="toggleProjects" class="dark-btn">{{ (this.projectNo == 3) ? 'View More...' : 'View Less...' }}</button>
+		</div>
+
+		<div class="about">
+			<div>
+				<p class="normal-p">After my degree in Computer Science at the University of Ilorin, Nigeria in 2022, I went on ahead to live my dream: 
+					work with actual people! I at last, had the opportunity to give actual value back to my society; 
+					helping businesses and entrepreneurs find their place, as well as an audience, in the global community. The Internet.
+				</p>
+
+				<p class="normal-p">
+					I love beauty. I love art. I love colors. I love logic. I love code. But most importantly, 
+					I love listening to my clients and then translating <span>who they are</span>, more so than what they do, into design.
+				</p>
+			</div>
+
+			<img :src="require('@/assets/profile/profile2.png')" alt="Profile Picture">
+		</div>
+
+		<div class="contact">
+			<h2>Get a quote</h2>
+
+			<form action="">
+				<p>Please fill this form, Sir/Ma, and I’ll get in touch as soon as possible!</p>
+
+				<div>
+					<input type="email" placeholder="Your e-mail address here...">
+					<textarea name="" id="" cols="30" rows="10">Your message here...</textarea>
+
+					<button class="dark-btn">Submit</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </template>
@@ -216,13 +261,9 @@ export default {
 	display: flex;
 	justify-content: space-between;
 
-	img {
+	.link {
 		position: relative;
-		border-radius: 5px;
 		width: calc((100%/5) - 35px);
-		object-fit: cover;
-		object-position: top;
-		box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 
 		&:nth-of-type(1) {
 			height: 490px;
@@ -252,6 +293,15 @@ export default {
 			height: 460px;
 			margin-top: auto;
 			margin-bottom: 125px;
+		}
+
+		img {
+			border-radius: 5px;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top;
+			box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 		}
 	}
 
@@ -560,7 +610,6 @@ export default {
 
 .projects {
 	margin-top: 250px;
-	margin-bottom: 250px;
 
 	.projects-ctn {
 		display: grid;
@@ -591,13 +640,171 @@ export default {
 
 	@media (max-width: 640px) {
 		margin-top: 150px;
-		margin-bottom: 150px;
 
 		.projects-ctn {
 			width: 95vw;
 			row-gap: 55px;
 			margin-top: 45px;
 		}
+	}
+}
+
+.about {
+	display: flex;
+	width: fit-content;
+	margin: auto;
+	margin-top: 250px;
+
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		width: 530px;
+		height: fit-content;
+		margin-top: 100px;
+		margin-right: -25px;
+
+		p {
+			text-align: justify;
+
+			span {
+				font-weight: 800;
+			}
+		}
+	}
+
+	img {
+		width: 360px;
+	}
+
+	@media (max-width: 1040px) {
+		div {
+			margin-top: auto;
+			margin-bottom: auto;
+			margin-right: -5px;
+			width: 45vw;
+		}
+
+		img {
+			width: 30vw;
+		}
+	}
+
+	@media (max-width: 840px) {
+		flex-direction: column;
+
+		div {
+			order: 1;
+			margin-right: unset;
+			width: 73vw;
+
+			p {
+				text-align: center;
+			}
+		}
+
+		img {
+			margin: auto;
+		}
+	}
+
+	@media (max-width: 640px) {
+		margin-top: 150px;
+
+		img {
+			width: 55vw;
+			height: 50vw;
+			margin-bottom: 15px;
+			border-bottom: 2px solid #363636;
+			object-fit: cover;
+			object-position: top;
+		}
+	}
+}
+
+.contact {
+	margin-top: 250px;
+
+	form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 500px;
+		width: 73vw;
+		max-width: 1240px;
+		margin: auto;
+		margin-top: 90px;
+		border-radius: 5px;
+        background: #FFFFFF;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+
+		p {
+			font-weight: 500;
+            font-size: 18px;
+			text-align: center;
+		}
+
+		div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 35px;
+			margin-top: 45px;
+
+			input,
+			textarea {
+				border: none;
+				outline: none;
+				width: 600px;
+				min-height: 50px;
+				border-radius: 5px;
+				padding: 20px 30px;
+				border: 1px solid #36363600;
+				font-weight: 500;
+				font-size: 15px;
+                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+				transition: .5s ease-out;
+
+				&:hover,
+				&:focus {
+					border: 1px solid #36363663;
+				}
+
+				&::placeholder {
+					color: #363636;
+				}
+			}
+
+			textarea {
+				height: 150px;
+			}
+		}
+	}
+
+	@media (max-width: 1040px) {
+		form {
+			width: 83vw;
+			margin-top: 45px;
+
+			p {
+				width: 65vw;
+                font-size: 16px;
+                margin-bottom: 7px;
+			}
+
+			div {
+				input,
+				textarea {
+					width: 65vw;
+					padding: 10px 10px;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 640px) {
+		margin-top: 150px;
 	}
 }
 </style>

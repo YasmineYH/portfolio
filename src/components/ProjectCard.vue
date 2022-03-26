@@ -1,17 +1,19 @@
 <template>
-    <div class="profile-card" :style="cssProps" v-if="(!(index.index > index.no))">
-        <div class="project">
-            <div class="image">
-                <div></div>
-                <img :src="require(`@/assets/project-images/${project.alias}.png`)" alt="`${project.alias} Project Image`">
+    <div class="project-card" v-if="(!(index.index > index.no))">
+            <div class="project">
+                <div class="image">
+                    <div></div>
+                    <img :src="require(`@/assets/project-images/${project.alias}.png`)" alt="`${project.alias} Project Image`">
+                </div>
+                <div class="image">
+                    <div></div>
+                    <img :src="require(`@/assets/project-images/${project.alias}.png`)" alt="`${project.alias} Project Image`">
+                </div>
             </div>
-            <div class="image">
-                <div></div>
-                <img :src="require(`@/assets/project-images/${project.alias}.png`)" alt="`${project.alias} Project Image`">
-            </div>
-        </div>
 
-        <h3>{{ project.title }}</h3>
+        <router-link class="link" :to="{ name: 'Project'}">
+            <h3>{{ project.title }}</h3>
+        </router-link>
     </div>
 </template>
 
@@ -19,18 +21,11 @@
 export default {
     name: 'ProjectCard',
     props: [ 'project', 'index' ],
-    computed: {
-        cssProps() {
-            return {
-                '--project-image': "url('../assets/project-images/" + (this.project.alias) + ".png')"
-            }
-        }
-  }
 }
 </script>
 
 <style lang="scss" scoped>
-.profile-card {
+.project-card {
 	justify-self: flex-start;
 
     &:nth-of-type(2n) {
@@ -112,11 +107,35 @@ export default {
         }
 	}
 
-    @media (max-width: 1240px) {
+    @media (max-width: 1040px) {
         justify-self: center;
 
         &:nth-of-type(2n) {
             justify-self: center;
+        }
+	}
+
+    @media (max-width: 440px) {
+		.project {
+            width: 258px;
+            height: 206px;
+            padding: 4px;
+
+            .image {
+                &:nth-of-type(1) {
+                    width: 140px;
+                    height: 148px;
+                }
+
+                &:nth-of-type(2) {
+                    width: 75px;
+                    height: 100%;
+                }
+            }
+        }
+
+        h3 {
+            margin-top: 15px;
         }
 	}
 }

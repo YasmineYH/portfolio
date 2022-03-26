@@ -1,19 +1,21 @@
 <template>
 	<div>
 		<Navigation />
+		<router-view />
+		<Footer />
 	</div>
-
-	<router-view />
 </template>
 
 
 <script>
 import Navigation from '@/components/Navigation.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
 	name: 'App',
 	components: {
-		Navigation
+		Navigation,
+		Footer
 	},
 	data() {
 		
@@ -93,7 +95,7 @@ html {
 
 	h3 {
 		font-size: 17px;
-		font-weight: 800;
+		font-weight: 700;
 		line-height: 25px;
 	}
 
