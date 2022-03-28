@@ -234,7 +234,7 @@ export default {
 					title: 'BICM Consultants Website'
 				}
 			],
-			projectNo: 3
+			projectNo: 3,
 		}
 	},
 	methods: {
@@ -308,7 +308,7 @@ export default {
 	@media (min-width: 1740px) {
 		height: 935px;
 
-		img {
+		.link {
 			&:nth-of-type(1) {
 				height: 690px;
 			}
@@ -334,7 +334,7 @@ export default {
 	@media (max-width: 1240px) {
 		height: 635px;
 
-		img {
+		.link {
 			width: calc((100%/5) - 25px);
 
 			&:nth-of-type(1) {
@@ -363,7 +363,7 @@ export default {
 	@media (max-width: 940px) {
 		height: 635px;
 
-		img {
+		.link {
 			width: calc((100%/5) + 8vw);
 
 			&:nth-of-type(1) {
@@ -393,7 +393,7 @@ export default {
 		height: 435px;
 		margin-top: 125px;
 
-		img {
+		.link {
 			width: calc((100%/5) + 8vw);
 
 			&:nth-of-type(1) {

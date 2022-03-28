@@ -3,6 +3,15 @@
 		<Navigation />
 		<router-view />
 		<Footer />
+
+		<div class="loader-ctn">
+			<div class="loader">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -24,7 +33,20 @@ export default {
 		
 	},
 	methods: {
-		
+		contentLoaded() {
+			window.addEventListener('load', function() {
+				setTimeout(() => {
+					document.querySelector('.loader-ctn').style.opacity = '0'
+
+					setTimeout(() => {
+						document.querySelector('.loader-ctn').style.display = 'none'
+					}, 1100);
+				}, 1000);
+			})
+		}
+	},
+	mounted() {
+		this.contentLoaded()
 	}
 }
 </script>
@@ -174,6 +196,100 @@ html {
 		.normal-p {
 			font-size: 13px;
 			line-height: 20px;
+		}
+	}
+
+	.loader-ctn {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: grid;
+		place-items: center;
+		width: 100vw;
+		height: 100vh;
+		z-index: 100000;
+		background: #363636;
+		background: #FFD4AC;
+		transition: 1s ease-out;
+
+		.loader {
+			display: flex;
+			gap: 10px;
+			height: 35px;
+
+			div {
+				width: 6px;
+				height: 25px;
+				border-radius: 20px;
+				background: #FFD4AC;
+				background: #363636;
+				margin-top: auto;
+				transform-origin: bottom;
+				transition: all ease-in;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				animation-play-state: running;
+
+				&:nth-of-type(1) {
+					animation-name: one;
+					animation-duration: 1s;
+				}
+
+				&:nth-of-type(2) {
+					animation-name: two;
+					animation-duration: .6s;
+				}
+
+				&:nth-of-type(3) {
+					animation-name: three;
+					animation-duration: .8s;
+				}
+
+				&:nth-of-type(4) {
+					animation-name: four;
+					animation-duration: .4s;
+				}
+			}
+
+			@keyframes one {
+				from {
+					height: 5px;
+				}
+
+				to {
+					height: 25px;
+				}
+			}
+
+			@keyframes two {
+				from {
+					height: 25px;
+				}
+
+				to {
+					height: 10px;
+				}
+			}
+
+			@keyframes three {
+				from {
+					height: 15px;
+				}
+
+				to {
+					height: 35px;
+				}
+			}
+
+			@keyframes four {
+				from {
+					height: 5px;
+				}
+
+				to {
+					height: 20px;
+				}
+			}
 		}
 	}
 }

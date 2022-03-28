@@ -5,7 +5,7 @@
             <h3>{{ tool.level }}</h3>
         </div>
 
-        <p class="normal-p">{{ tool.name }}</p>
+        <p class="normal-p" v-if="tool.name">{{ tool.name }}</p>
     </div>
 </template>
 
@@ -29,11 +29,12 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 20px;
         width: 100%;
         height: 142px;
         margin: auto;
-        padding: 25px 0 13px 0;
+        padding-top: 15px;
         border-radius: 5px;
         background: #FFFFFF;
         box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
