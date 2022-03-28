@@ -30,7 +30,8 @@ export default {
 		
 	},
 	created() {
-		
+		window.addEventListener('resize', this.setHeight)
+		this.setHeight()
 	},
 	methods: {
 		contentLoaded() {
@@ -43,6 +44,10 @@ export default {
 					}, 1100);
 				}, 1000);
 			})
+		},
+		setHeight() {
+			let vh = window.innerHeight * 0.01
+			document.documentElement.style.setProperty('--vh', `${vh}px`)
 		}
 	},
 	mounted() {
@@ -206,7 +211,7 @@ html {
 		display: grid;
 		place-items: center;
 		width: 100vw;
-		height: 100vh;
+		height: calc(100 * var(--vh));
 		z-index: 100000;
 		background: #363636;
 		background: #FFD4AC;

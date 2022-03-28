@@ -222,9 +222,17 @@ export default {
     }
 
     @media (max-width: 640px) {
+		margin-top: 135px;
+
         h3 {
             font-size: 20px;
             margin-bottom: 20px;
+        }
+
+        .tools {
+            .tool-ctn {
+                width: 83vw;
+            }
         }
     }
 }

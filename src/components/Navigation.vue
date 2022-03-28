@@ -125,7 +125,7 @@ nav {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        height: 100%;
+        height: calc(100 * var(--vh));
         width: 75vw;
         max-width: 400px;
         padding: 75px 0;
