@@ -1,10 +1,14 @@
 <template>
     <div class="profile-card">
-        <div class="profile">
+        <div class="profile" v-on:mousemove="getMousePosition" v-on:mouseleave="replaceImagePosition">
             <p>{{ profile.fullName }}</p>
             <h3>{{ profile.degree }}</h3>
 
-            <img :src="require(`@/assets/profile/${profile.firstPicture}.png`)" alt="{{ profile.fullName }}">
+            <img 
+                :src="require(`@/assets/profile/${profile.firstPicture}.png`)" 
+                alt="{{ profile.fullName }}"
+                :style="profilePosition"
+            >
         </div>
     </div>
 </template>
@@ -15,7 +19,67 @@ export default {
     name: 'ProfileCard',
     props: [
         'profile'
-    ]
+    ],
+    data() {
+        return {
+            mousePositionX: null,
+            mousePositionY: null,
+            profilePosition: null
+        }
+    },
+    created() {
+    },
+    methods: {
+        getMousePosition(event) {
+            this.mousePositionX = event.screenX;     // Get the horizontal coordinate
+            this.mousePositionY = event.screenY;     // Get the vertical coordinate
+
+            if (this.mousePositionX < 1050 && this.mousePositionX > 850) {
+                if (this.mousePositionY < 300 && this.mousePositionY > 160) {
+                    this.profilePosition = 'transform: translate(20px, -10px)'
+                }
+
+                if (this.mousePositionY < 500 && this.mousePositionY > 300) {
+                    this.profilePosition = 'transform: translate(20px, 0px)'
+                }
+
+                if (this.mousePositionY < 630 && this.mousePositionY > 500) {
+                    this.profilePosition = 'transform: translate(20px, 10px)'
+                }
+            }
+
+            if (this.mousePositionX < 850 && this.mousePositionX > 670) {
+                if (this.mousePositionY < 300 && this.mousePositionY > 160) {
+                    this.profilePosition = 'transform: translate(0px, -10px)'
+                }
+
+                if (this.mousePositionY < 500 && this.mousePositionY > 300) {
+                    this.profilePosition = 'transform: translate(0px, 0px)'
+                }
+
+                if (this.mousePositionY < 630 && this.mousePositionY > 500) {
+                    this.profilePosition = 'transform: translate(0px, 10px)'
+                }
+            }
+
+            if (this.mousePositionX < 670 && this.mousePositionX > 485) {
+                if (this.mousePositionY < 300 && this.mousePositionY > 160) {
+                    this.profilePosition = 'transform: translate(-20px, -10px)'
+                }
+
+                if (this.mousePositionY < 500 && this.mousePositionY > 300) {
+                    this.profilePosition = 'transform: translate(-20px, 0px)'
+                }
+
+                if (this.mousePositionY < 630 && this.mousePositionY > 500) {
+                    this.profilePosition = 'transform: translate(-20px, 10px)'
+                }
+            }
+        },
+        replaceImagePosition() {
+            this.profilePosition = `top: 150px; left: unset`
+        }
+    }
 }
 </script>
 
@@ -37,6 +101,12 @@ export default {
         border-radius: 5px;
         background: #FFFFFF;
         box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+        transition: 0.5s ease all;
+
+        &:hover {
+            transform: rotateZ(0deg) scale(1.01);
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+        }
 
         p {
             font-weight: 500;
@@ -48,6 +118,8 @@ export default {
             position: absolute;
             height: 445px;
             top: 150px;
+            filter: drop-shadow(0px -10px 14px rgba(0, 0, 0, 0));
+			transition: 1s ease-out all;
         }
     }
 

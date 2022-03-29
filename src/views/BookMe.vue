@@ -31,7 +31,7 @@
                     <div class="checks-ctn">
                         <p class="normal-p">Which services will you likely need?</p>
 
-                        <div>
+                        <div class="two-checks">
                             <div class="check-ctn">
                                 <input type="checkbox" name="" id="">
                                 <label class="normal-p" for="">UI Design</label>
@@ -168,7 +168,7 @@ form {
                     margin-bottom: 10px;
                 }
 
-                div {
+                .two-checks {
                     display: flex;
                     gap: 50px;
                 }
@@ -214,9 +214,22 @@ form {
                     width: 100%;
                     padding: 10px 10px;
                 }
+
+                .select-ctn {
+                    &::after {
+                        top: 20px;
+                        right: 12px;
+                    }
+                }
                 
                 .checks-ctn {
                     padding: 0 10px;
+
+                    .two-checks {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 15px;
+                    }
                 }
             }
         }

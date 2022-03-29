@@ -1,36 +1,34 @@
 <template>
     <nav>
-        <ul v-show="!mobile">
+        <ul v-if="!mobile">
             <li class="normal-p"><router-link class="link" :to="{ name: 'MyProjects'}">My Projects</router-link></li>
             <li class="normal-p"><router-link class="link" :to="{ name: 'BookMe'}">Book Me</router-link></li>
         </ul>
 
         <router-link class="logo" to="/">
-            <img :src="require('@/assets/icons/logo.svg')" alt="Logo">
+            <img :src="require('@/assets/icons/logo.svg')" @click="toggleMobileNavDelay" alt="Logo">
         </router-link>
 
-        <ul v-show="!mobile">
+        <ul v-if="!mobile">
             <li><a href="https://www.twitter.com" target="_blank"><img :src="require('../assets/icons/twitter.svg')" alt="Twitter"></a></li>
             <li><a href="https://www.github.com/YasmineYH" target="_blank"><img :src="require('../assets/icons/github.svg')" alt="Github"></a></li>
             <li><a href="https://www.linkedin.com/in/yasmine-yh/" target="_blank"><img :src="require('../assets/icons/linkedin.svg')" alt="Linkedin"></a></li>
         </ul>
 
-        <Hamburger @click="toggleMobileNav" class="burger" v-show="mobile" :class="(mobileNav ? 'close' : '')" />
+        <Hamburger @click="toggleMobileNav" class="burger" v-if="mobile" :class="(mobileNav ? 'close' : '')" />
 
-        <transition name="mobile-nav">
-			<div class="mobile-nav" v-show="mobileNav">
-				<ul class="mobile-nav-text">
-                    <li class="normal-p"><router-link class="link" to="myprojects">My Projects</router-link></li>
-                    <li class="normal-p"><router-link class="link" to="bookme">Book Me</router-link></li>
-                </ul>
+        <div class="mobile-nav" v-if="mobile" @click="toggleMobileNavDelay" :style="(mobileNav ? 'opacity:1;transform:scale(1)' : '')">
+            <ul class="mobile-nav-text">
+                <li class="normal-p"><router-link class="link" to="myprojects">My Projects</router-link></li>
+                <li class="normal-p"><router-link class="link" to="bookme">Book Me</router-link></li>
+            </ul>
 
-                <ul class="mobile-nav-icons">
-                    <li><a href="https://www.twitter.com" target="_blank"><img :src="require('../assets/icons/twitter-light.svg')" alt="Twitter"></a></li>
-                    <li><a href="https://www.github.com/YasmineYH" target="_blank"><img :src="require('../assets/icons/github-light.svg')" alt="Github"></a></li>
-                    <li><a href="https://www.linkedin.com/in/yasmine-yh/" target="_blank"><img :src="require('../assets/icons/linkedin-light.svg')" alt="Linkedin"></a></li>
-                </ul>
-			</div>
-		</transition>
+            <ul class="mobile-nav-icons">
+                <li><a href="https://www.twitter.com" target="_blank"><img :src="require('../assets/icons/twitter-light.svg')" alt="Twitter"></a></li>
+                <li><a href="https://www.github.com/YasmineYH" target="_blank"><img :src="require('../assets/icons/github-light.svg')" alt="Github"></a></li>
+                <li><a href="https://www.linkedin.com/in/yasmine-yh/" target="_blank"><img :src="require('../assets/icons/linkedin-light.svg')" alt="Linkedin"></a></li>
+            </ul>
+        </div>
     </nav>
 </template>
 
@@ -44,7 +42,7 @@ export default {
     data() {
 		return {
 			mobile: null,
-			mobileNav: null,
+			mobileNav: false,
 			windowWidth: null
 		}
 	},
@@ -62,11 +60,17 @@ export default {
 			}
 
 			this.mobile = false
-			this.mobileNav = false
 			return
 		},
 		toggleMobileNav() {
-			this.mobileNav = !this.mobileNav
+            this.mobileNav = !this.mobileNav
+		},
+		toggleMobileNavDelay() {
+            setTimeout(() => {
+                if (this.mobileNav) {
+                    this.mobileNav = !this.mobileNav
+                }
+            }, 400);
 		}
 	}
 }
@@ -111,26 +115,45 @@ nav {
     li {
         font-style: normal;
         letter-spacing: 0.05em;
+        transition: 0.5s ease all;
+
+        &:hover {
+            transform: rotateZ(-2deg) scale(1.02);
+        }
 
         img {
             height: 20px;
+            transition: 0.5s ease all;
+
+            &:hover {
+                transform: rotateZ(-2deg) scale(1.02);
+				box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+            }
         }
     }
 
     .mobile-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 100px;
         justify-content: space-between;
-        height: calc(100 * var(--vh));
-        width: 75vw;
-        max-width: 400px;
-        padding: 75px 0;
+        position: absolute;
+        right: 0;
+        top: 50px;
+        z-index: 10000;
+        width: 250px;
+        border-radius: 5px;
+        padding: 25px 0;
         background: #363636;
-        transition: all 1s ease;
+        transition: .3s ease-out;
+        transform: scale(.001);
+        transform-origin: top right;
+        opacity: 0;
+
+        @media (max-width: 340px) {
+            width: 75vw;
+        }
 
         .mobile-nav-text {
             display: flex;
@@ -165,23 +188,6 @@ nav {
                 width: 103px;
             }
         }
-    }
-
-    .mobile-nav-enter-active {
-        transition: all 1s ease;
-    }
-
-    .mobile-nav-leave-active {
-        transition: all 1s ease;
-    }
-
-    .mobile-nav-enter,
-    .mobile-nav-leave-to {
-        transform: translateX(-450px);
-    }
-
-    .mobile-nav-enter-to {
-        transform: translateX(0px);
     }
 }
 </style>

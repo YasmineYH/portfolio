@@ -43,6 +43,13 @@ export default {
         background: #FFFFFF;
         box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 
+        transition: 0.5s ease all;
+
+        &:hover {
+            transform: rotateZ(-2deg) scale(1.01);
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+        }
+
         .image {
             position: relative;
             border-radius: 5px;

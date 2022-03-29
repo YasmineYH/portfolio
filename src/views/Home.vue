@@ -302,6 +302,12 @@ export default {
 			object-fit: cover;
 			object-position: top;
 			box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+			transition: 0.5s ease all;
+
+			&:hover {
+				transform: rotateZ(-2deg) scale(1.01);
+				box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+			}
 		}
 	}
 
@@ -663,6 +669,7 @@ export default {
 		height: fit-content;
 		margin-top: 100px;
 		margin-right: -25px;
+		transition: 1s ease-out all;
 
 		p {
 			text-align: justify;
@@ -675,6 +682,13 @@ export default {
 
 	img {
 		width: 360px;
+		transition: 1s ease-out all;
+	}
+
+	&:hover {
+		img {
+			transform: translate(10px, 0) scale(1.01);
+		}
 	}
 
 	@media (max-width: 1040px) {

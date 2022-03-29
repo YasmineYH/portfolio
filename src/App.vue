@@ -83,6 +83,8 @@ html {
 
 	body {
 		background: #FFD4AC;
+		width: 100%;
+		overflow-x: hidden;
 	}
 
 	.link {
@@ -158,9 +160,9 @@ html {
 			background: #FFFFFF;
 
 			&:hover {
-				color: #FFFFFF;
-				background: #363636;
+				color: #363636;
 				box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
+				transform: rotateZ(-2deg) scale(1.01);
 			}
 		}
 
@@ -170,9 +172,8 @@ html {
 			box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
 
 			&:hover {
-				color: #363636;
-				background: #FFFFFF;
 				box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+				transform: rotateZ(-2deg) scale(1.01);
 			}
 		}
 	}

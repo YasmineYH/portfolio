@@ -122,6 +122,12 @@ export default {
                             width: 45px;
                             height: 32px;
                             border-radius: 5px;
+                            transition: 0.5s ease all;
+
+                            &:hover {
+                                transform: rotateZ(-5deg) scale(1.01);
+                                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+                            }
                         }
                     }
                 }
@@ -162,12 +168,6 @@ export default {
             text-decoration: none;
             height: 100%;
             width: 100%;
-        }
-
-        &:hover {
-            a {
-                color: #FFFFFF;
-            }
         }
     }
 
