@@ -1,7 +1,6 @@
 <template>
     <div class="project-card" v-if="(!(index.index > index.no))">
         <div class="project">
-            {{ index.no }} {{ index.index }}
             <div class="image">
                 <div></div>
                 <img :src="require(`@/assets/project-images/${project.alias}.png`)" :alt="`${project.alias} Project Image`">

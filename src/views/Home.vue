@@ -87,7 +87,7 @@
 
 			<div class="projects-ctn">
 				<ProjectCard v-for="(project, index) in projects" :key="index" :project="project" :index="{'index':index, 'no':projectNo}" />
-			</div> {{ projectNo}}
+			</div>
 
 			<button @click="toggleProjects" class="dark-btn">{{ (projectNo == 3) ? 'View More...' : 'View Less...' }}</button>
 		</div>
