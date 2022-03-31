@@ -21,7 +21,7 @@ const routes = [
 		component: MyProjects
 	},
 	{
-		path: '/project',
+		path: '/project/:projectId',
 		name: 'Project',
 		component: Project
 	}
@@ -29,7 +29,10 @@ const routes = [
 
 const router = createRouter({
 	history: createWebHistory(),
-	routes
+	routes,
+	scrollBehavior() {
+		return { top: 0 }
+	}
 })
 
 export default router

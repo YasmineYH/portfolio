@@ -26,9 +26,6 @@ export default {
 		Navigation,
 		Footer
 	},
-	data() {
-		
-	},
 	created() {
 		window.addEventListener('resize', this.setHeight)
 		this.setHeight()

@@ -1,19 +1,19 @@
 <template>
     <div class="project-card" v-if="(!(index.index > index.no))">
-            <div class="project">
-                <div class="image">
-                    <div></div>
-                    <img :src="require(`@/assets/project-images/${project.alias}.png`)" alt="`${project.alias} Project Image`">
-                </div>
-                <div class="image">
-                    <div></div>
-                    <img :src="require(`@/assets/project-images/${project.alias}.png`)" alt="`${project.alias} Project Image`">
-                </div>
+        <div class="project">
+            {{ index.no }} {{ index.index }}
+            <div class="image">
+                <div></div>
+                <img :src="require(`@/assets/project-images/${project.alias}.png`)" :alt="`${project.alias} Project Image`">
             </div>
+            <div class="image">
+                <div></div>
+                <img :src="require(`@/assets/project-images/${project.alias}.png`)" :alt="`${project.alias} Project Image`">
+            </div>
+            <router-link :to="{ name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
+        </div>
 
-        <router-link class="link" :to="{ name: 'Project'}">
-            <h3>{{ project.title }}</h3>
-        </router-link>
+        <h3>{{ project.title }}</h3>
     </div>
 </template>
 
@@ -33,6 +33,7 @@ export default {
     }
 
     .project {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -86,6 +87,13 @@ export default {
                 box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
                 z-index: 100;
             }
+        }
+
+        .project-link {
+            position: absolute;
+            z-index: 200;
+            inset: 0 0 0 0;
+            background: #ffffff00;
         }
     }
 

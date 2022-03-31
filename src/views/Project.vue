@@ -3,9 +3,9 @@
         <div class="project-ctn">
             <div class="left">
                 <div class="details">
-                    <h3>{{ bicm.title }}</h3>
-                    <p class="normal-p">{{ bicm.desc }}</p>
-                    <button class="light-btn"><a :href="bicm.link" target="_blank">Visit Site</a></button>
+                    <h3>{{ state.project.title }}</h3>
+                    <p class="normal-p">{{ state.project.desc }}</p>
+                    <button class="light-btn"><a :href="state.project.link" target="_blank">Visit Site</a></button>
                 </div>
 
                 <div class="assets">
@@ -13,69 +13,52 @@
                     <div class="color">
                         <p class="normal-p">Colors</p>
                         <div>
-                            <div v-for="(color, index) in bicm.colors" :key="index" :style="color"></div>
+                            <div v-for="(color, index) in state.project.colors" :key="index" :style="color"></div>
                         </div>
                     </div>
                     <div class="type">
                         <p class="normal-p">Typography</p>
-                        <div :style="bicm.type">{{ bicm.type.substring(13) }} <span>- Aa Bb Cc Dd Ff</span></div>
+                        <div :style="state.project.type">{{ state.project.type.substring(13) }} <span>- Aa Bb Cc Dd Ff</span></div>
                     </div>
                 </div>
             </div>
-            <img :src="require('@/assets/project-displays/bicm.png')" alt="Bicm Project Display">
+            <img :src="require(`@/assets/project-displays/${state.project.alias}.png`)" alt="Bicm Project Display">
         </div>
 
         <div class="tools">
             <h3>Tools Used</h3>
-			<div class="tool-ctn"><ToolCard v-for="(tool, index) in bicm.tools" :key="index" :tool="tool" /></div>
+			<div class="tool-ctn"><ToolCard v-for="(tool, index) in state.project.tools" :key="index" :tool="tool" /></div>
         </div>
 
-        <button class="light-btn"><a :href="bicm.link" target="_blank">Visit Site</a></button>
+        <button class="light-btn"><a :href="state.project.link" target="_blank">Visit Site</a></button>
     </div>
 </template>
 
 
 <script>
 import ToolCard from '@/components/ToolCard.vue'
+import { projects } from '../assets/data/projects'
+import { useRoute } from 'vue-router'
+import { reactive, computed } from 'vue'
 
 export default {
     name: 'Project',
 	components: {
 		ToolCard
 	},
-	data() {
-		return {
-            bicm: {
-                title: 'DIEM Consultants Website',
-                desc: 'Dignissim magna sed ante non commodo mauris, sed vulputate. Tellus egestas magna nibh diam vestibulum porta. Ut porttitor in in libero malesuada gravida aliquet tempus bibendum. Etiam sit id maecenas enim. Lorem velit mauris consectetur in sit nulla. Lacus, pharetra velit ut viverra ipsum. Mollis et vitae dui in quis faucibus a, eget.',
-                colors: [
-                    'background: #002640',
-                    'background: #FF6C2E',
-                    'background: #72BCF0',
-                    'background: #FFFFFF'
-                ],
-                type: "font-family: 'Josefin Sans'",
-                tools: [
-                    {
-                        name: 'figma'
-                    },
-                    {
-                        name: 'html5'
-                    },
-                    {
-                        name: 'css3'
-                    },
-                    {
-                        name: 'javaScript'
-                    },
-                    {
-                        name: 'webflow',
-                    }
-                ],
-                link: 'https://yasmineyh.github.io/bicm/'
-            }
-		}
-	}
+	setup() {
+        const route = useRoute()
+        const projectId = computed(() => route.params.projectId)
+
+        const state = reactive({
+            project: projects[projectId.value] || projects.diem
+        })
+
+        return {
+            projectId,
+            state
+        }
+    }
 }
 </script>
 
@@ -96,6 +79,8 @@ export default {
 
         img {
             width: 440px;
+            object-fit: contain;
+            object-position: top;
         }
 
         .left {
@@ -143,7 +128,7 @@ export default {
                         height: 35px;
                         width: fit-content;
                         font-size: 15px;
-                        box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.3);
+                        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
 
                         span {
                             font-weight: 700;

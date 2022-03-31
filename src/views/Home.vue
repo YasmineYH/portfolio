@@ -3,23 +3,23 @@
 		<h1 class="home-h1">Web |  UI Designer</h1>
 
 		<div class="header-graphic">
-			<router-link class="link" :to="{ name: 'Project'}">
+			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'yasso'}}">
 				<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
 			</router-link>
 
-			<router-link class="link" :to="{ name: 'Project'}">
+			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'healthic'}}">
 				<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
 			</router-link>
 
-			<router-link class="link" :to="{ name: 'Project'}">
+			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'diem'}}">
 				<img :src="require('@/assets/project-images/diem.png')" alt="Diem Project Image">
 			</router-link>
 
-			<router-link class="link" :to="{ name: 'Project'}">
+			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'chefart'}}">
 				<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
 			</router-link>
 
-			<router-link class="link" :to="{ name: 'Project'}">
+			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'goodpie'}}">
 				<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
 			</router-link>
 		</div>
@@ -87,9 +87,9 @@
 
 			<div class="projects-ctn">
 				<ProjectCard v-for="(project, index) in projects" :key="index" :project="project" :index="{'index':index, 'no':projectNo}" />
-			</div>
+			</div> {{ projectNo}}
 
-			<button @click="toggleProjects" class="dark-btn">{{ (this.projectNo == 3) ? 'View More...' : 'View Less...' }}</button>
+			<button @click="toggleProjects" class="dark-btn">{{ (projectNo == 3) ? 'View More...' : 'View Less...' }}</button>
 		</div>
 
 		<div class="about">
@@ -130,6 +130,10 @@
 import ToolCard from '@/components/ToolCard.vue'
 import ProfileCard from '@/components/ProfileCard.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
+import { projects } from '../assets/data/projects'
+import { tools } from '../assets/data/tools'
+import { profile } from '../assets/data/profile'
+import { experiences } from '../assets/data/experiences'
 
 export default {
 	name: 'Home',
@@ -138,112 +142,24 @@ export default {
 		ProfileCard,
 		ProjectCard
 	},
-	data() {
-		return {
-			tools: [
-                {
-                    name: 'html5',
-                    level: '95%'
-                },
-                {
-                    name: 'css3',
-                    level: '90%'
-                },
-				{
-                    name: 'javaScript',
-                    level: '70%'
-                },
-				{
-                    name: 'figma',
-                    level: '95%'
-                },
-				{
-                    name: 'vue',
-                    level: '65%'
-                },
-                {
-                    name: 'webflow',
-                    level: '45%'
-                }
-            ],
-			profile: {
-				fullName: 'Yessoufou Yasmine',
-				degree: 'B.Sc. Computer Science',
-				firstPicture: 'profile1',
-				secondPicture: 'profile2',
-				about: 'I’m Yessoufou Yasmine, a Web & UI Designer living in Parakou, Republic of Benin.',
-				contact: {
-					email: 'hyyasmine@gmail.com',
-					whatsapp: '+229 66 55 64 05',
-					tel: '+229 90 94 32 22',
-					github: 'github.com/YasmineYH'
-				},
-				services: [
-					'UI design',
-					'Website design',
-					'Front-end development',
-					'Consultation and Website audit'
-				],
-				yearsOfExperience: '+2',
-				clientSatisfaction: '95%',
-				projectsDone: '15'
-			},
-			experiences: [
-				{
-					year: '2013 - 2016',
-					title: 'O’ Level',
-					location: 'Sharon Rose College',
-					country: 'Nigeria'
-				},
-				{
-					year: '2017 - 2022',
-					title: 'B.Sc. Computer Science',
-					location: 'University of Ilorin',
-					country: 'Nigeria'
-				},
-				{
-					year: 'Mar - Sept, 2020',
-					title: 'Web Development Intern',
-					location: 'McLords Mobile Solutions Ltd',
-					country: 'Nigeria'
-				}
-			],
-			projects: [
-				{
-					alias: 'healthic',
-					title: 'Healthic Clinic App'
-				},
-				{
-					alias: 'diem',
-					title: 'DIEM Consultants Website'
-				},
-				{
-					alias: 'yasso',
-					title: 'Yasso’s World Blog'
-				},
-				{
-					alias: 'chefart',
-					title: 'ChefArt Restaurant Website'
-				},
-				{
-					alias: 'goodpie',
-					title: 'GoodPie Food Delivery Website'
-				},
-				{
-					alias: 'bicm',
-					title: 'BICM Consultants Website'
-				}
-			],
-			projectNo: 3,
-		}
-	},
-	methods: {
-		toggleProjects() {
+	setup() {
+		const projectNo = 3
+
+		function toggleProjects() {
 			if (this.projectNo == 3) {
 				this.projectNo = this.projects.length-1
 			} else {
 				this.projectNo = 3
 			}
+		}
+
+		return  {
+			tools,
+			projects,
+			profile,
+			experiences,
+			projectNo,
+			toggleProjects,
 		}
 	}
 }

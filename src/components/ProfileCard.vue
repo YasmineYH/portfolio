@@ -31,26 +31,26 @@ export default {
     },
     methods: {
         getMousePosition(event) {
-            this.mousePositionX = event.screenX;     // Get the horizontal coordinate
-            this.mousePositionY = event.screenY;     // Get the vertical coordinate
+            this.mousePositionX = event.clientX;     // Get the horizontal coordinate
+            this.mousePositionY = event.clientY;     // Get the vertical coordinate
 
-            if (this.mousePositionX < 1050 && this.mousePositionX > 850) {
-                if (this.mousePositionY < 300 && this.mousePositionY > 160) {
-                    this.profilePosition = 'transform: translate(20px, -10px)'
+            if (this.mousePositionX < 1050 && this.mousePositionX > 750) {
+                if (this.mousePositionY < 225 && this.mousePositionY > 87) {
+                    this.profilePosition = 'transform: translate(-10px, 10px)'
                 }
 
-                if (this.mousePositionY < 500 && this.mousePositionY > 300) {
-                    this.profilePosition = 'transform: translate(20px, 0px)'
+                if (this.mousePositionY < 380 && this.mousePositionY > 275) {
+                    this.profilePosition = 'transform: translate(-10px, 0px)'
                 }
 
-                if (this.mousePositionY < 630 && this.mousePositionY > 500) {
-                    this.profilePosition = 'transform: translate(20px, 10px)'
+                if (this.mousePositionY < 565 && this.mousePositionY > 380) {
+                    this.profilePosition = 'transform: translate(-10px, -10px)'
                 }
             }
 
-            if (this.mousePositionX < 850 && this.mousePositionX > 670) {
+            /*if (this.mousePositionX < 850 && this.mousePositionX > 670) {
                 if (this.mousePositionY < 300 && this.mousePositionY > 160) {
-                    this.profilePosition = 'transform: translate(0px, -10px)'
+                    this.profilePosition = 'transform: translate(0px, 10px)'
                 }
 
                 if (this.mousePositionY < 500 && this.mousePositionY > 300) {
@@ -58,21 +58,21 @@ export default {
                 }
 
                 if (this.mousePositionY < 630 && this.mousePositionY > 500) {
-                    this.profilePosition = 'transform: translate(0px, 10px)'
+                    this.profilePosition = 'transform: translate(0px, -10px)'
                 }
-            }
+            }*/
 
-            if (this.mousePositionX < 670 && this.mousePositionX > 485) {
-                if (this.mousePositionY < 300 && this.mousePositionY > 160) {
-                    this.profilePosition = 'transform: translate(-20px, -10px)'
-                }
-
-                if (this.mousePositionY < 500 && this.mousePositionY > 300) {
-                    this.profilePosition = 'transform: translate(-20px, 0px)'
+            if (this.mousePositionX < 750 && this.mousePositionX > 480) {
+                if (this.mousePositionY < 225 && this.mousePositionY > 87) {
+                    this.profilePosition = 'transform: translate(10px, 10px)'
                 }
 
-                if (this.mousePositionY < 630 && this.mousePositionY > 500) {
-                    this.profilePosition = 'transform: translate(-20px, 10px)'
+                if (this.mousePositionY < 380 && this.mousePositionY > 275) {
+                    this.profilePosition = 'transform: translate(10px, 0px)'
+                }
+
+                if (this.mousePositionY < 565 && this.mousePositionY > 380) {
+                    this.profilePosition = 'transform: translate(10px, -10px)'
                 }
             }
         },

@@ -11,42 +11,21 @@
 
 <script>
 import ProjectCard from '../components/ProjectCard.vue'
+import { projects } from '../assets/data/projects'
 
 export default {
     name: 'MyProjects',
     components: { 
         ProjectCard
     },
-    data() {
-        return {
-            projects: [
-				{
-					alias: 'healthic',
-					title: 'Healthic Clinic App'
-				},
-				{
-					alias: 'diem',
-					title: 'DIEM Consultants Website'
-				},
-				{
-					alias: 'yasso',
-					title: 'Yasso’s World Blog'
-				},
-				{
-					alias: 'chefart',
-					title: 'ChefArt Restaurant Website'
-				},
-				{
-					alias: 'goodpie',
-					title: 'GoodPie Food Delivery Website'
-				},
-				{
-					alias: 'bicm',
-					title: 'BICM Consultants Website'
-				}
-			]
-        }
-    }
+    setup() {
+		const projectNo = Object.keys(projects).length
+
+		return  {
+			projects,
+			projectNo
+		}
+	}
 }
 </script>
 
