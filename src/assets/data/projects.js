@@ -114,7 +114,7 @@ export const projects = {
                 name: 'webflow',
             }
         ],
-        link: 'https://yasmineyh.github.io/bicm/'
+        link: 'https://www.figma.com/proto/W9cacBk1dUpQQxgzob4ulC/Design-Templates?page-id=0%3A1&node-id=0%3A1&viewport=241%2C48%2C0.07&scaling=scale-down-width&starting-point-node-id=2%3A2'
     },
     goodpie: {
         alias: 'goodpie',
