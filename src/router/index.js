@@ -7,9 +7,11 @@ import Project from '../views/Project.vue'
 const routes = [
 	{
 		path: '/',
+		alias: '/upwork',
 		name: 'Home',
 		component: Home
 	},
+	
 	{
 		path: '/bookme',
 		name: 'BookMe',
@@ -17,11 +19,13 @@ const routes = [
 	},
 	{
 		path: '/myprojects',
+		alias: '/upwork/myprojects',
 		name: 'MyProjects',
 		component: MyProjects
 	},
 	{
 		path: '/project/:projectId',
+		alias: '/upwork/project/:projectId',
 		name: 'Project',
 		component: Project
 	}

@@ -24,7 +24,7 @@ export default {
         return {
             mousePositionX: null,
             mousePositionY: null,
-            profilePosition: null
+            profilePosition: null,
         }
     },
     created() {

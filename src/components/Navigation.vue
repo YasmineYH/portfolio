@@ -1,20 +1,22 @@
 <template>
     <nav>
         <ul v-if="!mobile">
-            <li class="normal-p"><router-link class="link" :to="{ name: 'MyProjects'}">My Projects</router-link></li>
-            <li class="normal-p"><router-link class="link" :to="{ name: 'BookMe'}">Book Me</router-link></li>
+            <li class="normal-p"><router-link class="link" :to="route.includes('/upwork') ? { path: '/upwork/myprojects' } : { name: 'MyProjects'}">My Projects</router-link></li>
+            <li class="normal-p"><router-link class="link" :to="{ name: 'BookMe'}" v-if="!route.includes('/upwork')">Book Me</router-link></li>
         </ul>
 
-        <router-link class="logo" to="/">
+        <router-link class="logo" :to="route.includes('/upwork') ? { path: '/upwork' } : { name: 'Home' }">
             <img :src="require('@/assets/icons/logo.svg')" @click="toggleMobileNavDelay" alt="Logo">
         </router-link>
 
-        <ul v-if="!mobile">
+        <ul v-if="!mobile && !route.includes('/upwork')">
             <li><a href="https://www.twitter.com" target="_blank"><img :src="require('../assets/icons/twitter.svg')" alt="Twitter"></a></li>
             <li><a href="https://www.github.com/YasmineYH" target="_blank"><img :src="require('../assets/icons/github.svg')" alt="Github"></a></li>
             <li><a href="https://www.linkedin.com/in/yasmine-yh/" target="_blank"><img :src="require('../assets/icons/linkedin.svg')" alt="Linkedin"></a></li>
         </ul>
 
+
+        <!--Mobile part of the navigation-->
         <Hamburger @click="toggleMobileNav" class="burger" v-if="mobile" :class="(mobileNav ? 'close' : '')" />
 
         <div class="mobile-nav" v-if="mobile" @click="toggleMobileNavDelay" :style="(mobileNav ? 'opacity:1;transform:scale(1)' : '')">
@@ -35,6 +37,8 @@
 
 <script>
 import Hamburger from '@/components/Hamburger.vue'
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
 
 export default {
     name: 'Navigation',
@@ -43,7 +47,9 @@ export default {
 		return {
 			mobile: null,
 			mobileNav: false,
-			windowWidth: null
+			windowWidth: null,
+
+            route: computed(() => useRoute().path)
 		}
 	},
 	created() {

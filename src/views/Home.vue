@@ -3,23 +3,23 @@
 		<h1 class="home-h1">Web |  UI Designer</h1>
 
 		<div class="header-graphic">
-			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'yasso'}}">
+			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
 				<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
 			</router-link>
 
-			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'healthic'}}">
+			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/healthic`} : { name: 'Project', params: { projectId: `healthic`}}">
 				<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
 			</router-link>
 
-			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'diem'}}">
+			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/diem`} : { name: 'Project', params: { projectId: `diem`}}">
 				<img :src="require('@/assets/project-images/diem.png')" alt="Diem Project Image">
 			</router-link>
 
-			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'chefart'}}">
+			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/chefart`} : { name: 'Project', params: { projectId: `chefart`}}">
 				<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
 			</router-link>
 
-			<router-link class="link" :to="{ name: 'Project', params: { projectId : 'goodpie'}}">
+			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/goodpie`} : { name: 'Project', params: { projectId: `goodpie`}}">
 				<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
 			</router-link>
 		</div>
@@ -35,7 +35,7 @@
 					<p class="normal-p">{{ profile.about }}</p>
 				</div>
 
-				<div>
+				<div v-if="route != '/upwork'">
 					<h4>Contact</h4>
 					<p class="normal-p"><span>Email: </span>{{ profile.contact.email }}</p>
 					<p class="normal-p"><span>Whatsapp: </span>{{ profile.contact.whatsapp }}</p>
@@ -108,7 +108,7 @@
 			<img :src="require('@/assets/profile/profile2.png')" alt="Profile Picture">
 		</div>
 
-		<div class="contact">
+		<div class="contact" v-if="route != '/upwork'">
 			<h2>Get a quote</h2>
 
 			<form action="">
@@ -135,6 +135,9 @@ import { tools } from '../assets/data/tools'
 import { profile } from '../assets/data/profile'
 import { experiences } from '../assets/data/experiences'
 
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
 export default {
 	name: 'Home',
 	components: {
@@ -144,6 +147,7 @@ export default {
 	},
 	setup() {
 		const projectNo = 3
+		const route = computed(() => useRoute().path)
 
 		function toggleProjects() {
 			if (this.projectNo == 3) {
@@ -160,6 +164,7 @@ export default {
 			experiences,
 			projectNo,
 			toggleProjects,
+			route
 		}
 	}
 }

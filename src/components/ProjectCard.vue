@@ -9,7 +9,7 @@
                 <div></div>
                 <img :src="require(`@/assets/project-images/${project.alias}.png`)" :alt="`${project.alias} Project Image`">
             </div>
-            <router-link :to="{ name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
+            <router-link :to="route.includes('/upwork') ? { path: `/upwork/project/${project.alias}`} : { name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
         </div>
 
         <h3>{{ project.title }}</h3>
@@ -17,9 +17,17 @@
 </template>
 
 <script>
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
 export default {
     name: 'ProjectCard',
     props: [ 'project', 'index' ],
+    data() {
+        return {
+            route: computed(() => useRoute().path)
+        }
+    }
 }
 </script>
 
