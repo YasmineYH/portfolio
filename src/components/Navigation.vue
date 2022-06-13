@@ -2,7 +2,7 @@
     <nav>
         <ul v-if="!mobile">
             <li class="normal-p"><router-link class="link" :to="route.includes('/upwork') ? { path: '/upwork/myprojects' } : { name: 'MyProjects'}">My Projects</router-link></li>
-            <li class="normal-p"><router-link class="link" :to="{ name: 'BookMe'}" v-if="!route.includes('/upwork')">Book Me</router-link></li>
+            <!--<li class="normal-p"><router-link class="link" :to="{ name: 'BookMe'}" v-if="!route.includes('/upwork')">Book Me</router-link></li>-->
         </ul>
 
         <router-link class="logo" :to="route.includes('/upwork') ? { path: '/upwork' } : { name: 'Home' }">
@@ -22,7 +22,7 @@
         <div class="mobile-nav" v-if="mobile" @click="toggleMobileNavDelay" :style="(mobileNav ? 'opacity:1;transform:scale(1)' : '')">
             <ul class="mobile-nav-text">
                 <li class="normal-p"><router-link class="link" to="myprojects">My Projects</router-link></li>
-                <li class="normal-p"><router-link class="link" to="bookme">Book Me</router-link></li>
+                <!--<li class="normal-p"><router-link class="link" to="bookme">Book Me</router-link></li>--->
             </ul>
 
             <ul class="mobile-nav-icons">

@@ -35,13 +35,13 @@
 					<p class="normal-p">{{ profile.about }}</p>
 				</div>
 
-				<div v-if="route != '/upwork'">
+				<!--<div v-if="route != '/upwork'">
 					<h4>Contact</h4>
 					<p class="normal-p"><span>Email: </span>{{ profile.contact.email }}</p>
 					<p class="normal-p"><span>Whatsapp: </span>{{ profile.contact.whatsapp }}</p>
 					<p class="normal-p"><span>Tel: </span>{{ profile.contact.tel }}</p>
 					<p class="normal-p"><span>Github: </span>{{ profile.contact.github }}</p>
-				</div>
+				</div>-->
 
 				<div>
 					<h4>Services</h4>
@@ -108,7 +108,7 @@
 			<img :src="require('@/assets/profile/profile2.png')" alt="Profile Picture">
 		</div>
 
-		<div class="contact" v-if="route != '/upwork'">
+		<!--<div class="contact" v-if="route != '/upwork'">
 			<h2>Get a quote</h2>
 
 			<form action="">
@@ -121,7 +121,7 @@
 					<button class="dark-btn">Submit</button>
 				</div>
 			</form>
-		</div>
+		</div>-->
 	</div>
 </template>
 
