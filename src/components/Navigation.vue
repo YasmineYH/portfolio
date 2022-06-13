@@ -10,7 +10,7 @@
         </router-link>
 
         <ul v-if="!mobile && !route.includes('/upwork')">
-            <li><a href="https://www.twitter.com" target="_blank"><img :src="require('../assets/icons/twitter.svg')" alt="Twitter"></a></li>
+            <li><a href="https://twitter.com/YasmineYesoufou" target="_blank"><img :src="require('../assets/icons/twitter.svg')" alt="Twitter"></a></li>
             <li><a href="https://www.github.com/YasmineYH" target="_blank"><img :src="require('../assets/icons/github.svg')" alt="Github"></a></li>
             <li><a href="https://www.linkedin.com/in/yasmine-yh/" target="_blank"><img :src="require('../assets/icons/linkedin.svg')" alt="Linkedin"></a></li>
         </ul>
@@ -26,7 +26,7 @@
             </ul>
 
             <ul class="mobile-nav-icons">
-                <li><a href="https://www.twitter.com" target="_blank"><img :src="require('../assets/icons/twitter-light.svg')" alt="Twitter"></a></li>
+                <li><a href="https://twitter.com/YasmineYesoufou" target="_blank"><img :src="require('../assets/icons/twitter-light.svg')" alt="Twitter"></a></li>
                 <li><a href="https://www.github.com/YasmineYH" target="_blank"><img :src="require('../assets/icons/github-light.svg')" alt="Github"></a></li>
                 <li><a href="https://www.linkedin.com/in/yasmine-yh/" target="_blank"><img :src="require('../assets/icons/linkedin-light.svg')" alt="Linkedin"></a></li>
             </ul>
