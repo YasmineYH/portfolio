@@ -3,7 +3,7 @@ export const profile = {
     degree: 'B.Sc. Computer Science',
     firstPicture: 'profile1',
     secondPicture: 'profile2',
-    about: 'I’m Yessoufou Yasmine, a Web & UI Designer living in Parakou, Republic of Benin.',
+    about: 'I’m Yessoufou Yasmine, a Web & UI Designer living in Calavi, Republic of Benin.',
     contact: {
         email: 'hyyasmine@gmail.com',
         whatsapp: '+229 66 55 64 05',
