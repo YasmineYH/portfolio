@@ -11,8 +11,8 @@
 				<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
 			</router-link>
 
-			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/diem`} : { name: 'Project', params: { projectId: `diem`}}">
-				<img :src="require('@/assets/project-images/diem.png')" alt="Diem Project Image">
+			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/bicm`} : { name: 'Project', params: { projectId: `bicm`}}">
+				<img :src="require('@/assets/project-images/bicm.png')" alt="Bicm Project Image">
 			</router-link>
 
 			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/chefart`} : { name: 'Project', params: { projectId: `chefart`}}">
@@ -38,8 +38,7 @@
 				<div v-if="route != '/upwork'">
 					<h4>Contact</h4>
 					<p class="normal-p"><span>Email: </span>{{ profile.contact.email }}</p>
-					<p class="normal-p"><span>Whatsapp: </span>{{ profile.contact.whatsapp }}</p>
-					<p class="normal-p"><span>Tel: </span>{{ profile.contact.tel }}</p>
+					<p class="normal-p"><span>Whatsapp: </span>{{ profile.contact.tel }}</p>
 					<p class="normal-p"><span>Github: </span>{{ profile.contact.github }}</p>
 				</div>
 
@@ -86,10 +85,10 @@
 			<h2>Projects</h2>
 
 			<div class="projects-ctn">
-				<ProjectCard v-for="(project, index) in projects" :key="index" :project="project" :index="{'index':index, 'no':projectNo}" />
+				<ProjectCard v-for="(project, index) in toggleProjects" :key="index" :project="project" />
 			</div>
 
-			<button @click="toggleProjects" class="dark-btn">{{ (projectNo == 3) ? 'View More...' : 'View Less...' }}</button>
+			<button @click="toggleProjectsBtn" class="dark-btn">{{ projectsBtn }}</button>
 		</div>
 
 		<div class="about">
@@ -111,12 +110,13 @@
 		<div class="contact" v-if="route != '/upwork'">
 			<h2>Get a quote</h2>
 
-			<form action="">
+			<form ref="form" @submit.prevent="sendEmail">
 				<p>Please fill this form, Sir/Ma, and I’ll get in touch as soon as possible!</p>
 
 				<div>
-					<input type="email" placeholder="Your e-mail address here...">
-					<textarea name="" id="" cols="30" rows="10">Your message here...</textarea>
+					<!--<input type="text" placeholder="Your full name here..." name="quote_name">-->
+					<input type="email" placeholder="Your e-mail address here..." name="quote_email">
+					<textarea cols="30" rows="10" name="quote_message">Your message here...</textarea>
 
 					<button class="dark-btn">Submit</button>
 				</div>
@@ -134,9 +134,10 @@ import { projects } from '../assets/data/projects'
 import { tools } from '../assets/data/tools'
 import { profile } from '../assets/data/profile'
 import { experiences } from '../assets/data/experiences'
+import emailjs from 'emailjs-com'
 
 import { useRoute } from 'vue-router'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 
 export default {
 	name: 'Home',
@@ -146,15 +147,37 @@ export default {
 		ProjectCard
 	},
 	setup() {
-		const projectNo = 3
 		const route = computed(() => useRoute().path)
 
-		function toggleProjects() {
-			if (this.projectNo == 3) {
-				this.projectNo = this.projects.length-1
+		const limit = ref([5])
+		const toggleProjects = computed(() => limit.value ? Object.entries(projects).slice(0,4).map(entry => entry[1]) : projects)
+
+		const projectsBtn = ref('View More...')
+		function toggleProjectsBtn() {
+			if (limit.value == 5) {
+				limit.value = null
+				projectsBtn.value = 'View Less...'
 			} else {
-				this.projectNo = 3
+				limit.value = 5
+				projectsBtn.value = 'View More...'
 			}
+		}
+
+		const quote_name = ref([])
+		const quote_email = ref([])
+		const quote_message = ref([])
+		function sendEmail(e) {
+			emailjs.sendForm('portfolio-quote-service', 'portfolio-quote-service', e.target, '1_cV-2fNCZ6030hn7')
+			.then((result) => {
+				console.log('SUCCESS!', result.text);
+			}, (error) => {
+				console.log('FAILED...', error.text);
+			});
+
+			// Reset form field
+			quote_name.value = ''
+			quote_email.value = ''
+			quote_message.value = ''
 		}
 
 		return  {
@@ -162,9 +185,15 @@ export default {
 			projects,
 			profile,
 			experiences,
-			projectNo,
+			limit,
 			toggleProjects,
-			route
+			projectsBtn,
+			toggleProjectsBtn,
+			route,
+			quote_name,
+			quote_email,
+			quote_message,
+			sendEmail
 		}
 	}
 }
@@ -392,7 +421,7 @@ export default {
 
 			div:nth-child(2),
 			div:nth-child(3) {
-				width: 225px;
+				width: 235px;
 
 				p {
 					line-height: 30px;

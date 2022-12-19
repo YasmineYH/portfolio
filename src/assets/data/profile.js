@@ -8,6 +8,7 @@ export const profile = {
         email: 'hyyasmine@gmail.com',
         whatsapp: '+229 66 55 64 05',
         tel: '+229 90 94 32 22',
+        linkedin: 'linkedin.com/in/yasmine-yh',
         github: 'github.com/YasmineYH'
     },
     services: [
@@ -16,7 +17,7 @@ export const profile = {
         'Front-end development',
         'Consultation and Website audit'
     ],
-    yearsOfExperience: '+2',
+    yearsOfExperience: '+3',
     clientSatisfaction: '95%',
-    projectsDone: '15'
+    projectsDone: '09'
 }

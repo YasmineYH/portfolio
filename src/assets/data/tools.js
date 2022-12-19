@@ -17,7 +17,7 @@ export const tools = [
     },
     {
         name: 'vue',
-        level: '65%'
+        level: '75%'
     },
     {
         name: 'webflow',

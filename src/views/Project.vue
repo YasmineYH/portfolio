@@ -18,7 +18,7 @@
                     </div>
                     <div class="type">
                         <p class="normal-p">Typography</p>
-                        <div :style="state.project.type">{{ state.project.type.substring(13) }} <span>- Aa Bb Cc Dd Ff</span></div>
+                        <div v-for="(type, index) in state.project.type" :key="index" :style="type">{{ type.substring(13) }} <span :style="type">- Aa Bb Cc Dd Ff</span></div>
                     </div>
                 </div>
             </div>
@@ -81,6 +81,7 @@ export default {
             width: 440px;
             object-fit: contain;
             object-position: top;
+            borer: 1px solid;
         }
 
         .left {
@@ -122,13 +123,15 @@ export default {
                         display: flex;
                         align-items: center;
                         margin-top: 5px;
+                        margin-bottom: 15px;
                         border-radius: 5px;
                         border: 2px solid;
                         padding: 0 15px;
                         height: 35px;
                         width: fit-content;
                         font-size: 15px;
-                        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+                        font-weight: 500;
+                        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
 
                         span {
                             font-weight: 700;

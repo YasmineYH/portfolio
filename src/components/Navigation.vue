@@ -21,8 +21,8 @@
 
         <div class="mobile-nav" v-if="mobile" @click="toggleMobileNavDelay" :style="(mobileNav ? 'opacity:1;transform:scale(1)' : '')">
             <ul class="mobile-nav-text">
-                <li class="normal-p"><router-link class="link" to="myprojects">My Projects</router-link></li>
-                <li class="normal-p"><router-link class="link" to="bookme">Book Me</router-link></li>
+                <li class="normal-p"><router-link class="link" :to="{ name: 'MyProjects'}">My Projects</router-link></li>
+                <li class="normal-p"><router-link class="link" :to="{ name: 'BookMe'}">Book Me</router-link></li>
             </ul>
 
             <ul class="mobile-nav-icons">
@@ -142,7 +142,7 @@ nav {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 100px;
+        gap: 80px;
         justify-content: space-between;
         position: absolute;
         right: 0;
@@ -150,7 +150,8 @@ nav {
         z-index: 10000;
         width: 250px;
         border-radius: 5px;
-        padding: 25px 0;
+        padding-bottom: 25px;
+        padding-top: 5px;
         background: #363636;
         transition: .3s ease-out;
         transform: scale(.001);
@@ -162,10 +163,23 @@ nav {
         }
 
         .mobile-nav-text {
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
+            gap: 5px;
+
+            li {
+                width: 100%;
+
+                .link {
+                    display: block;
+                    width: 100%;
+                    padding: 20px 0;
+                    text-align: center;
+                }
+            }
         }
 
         .mobile-nav-icons {

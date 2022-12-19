@@ -1,6 +1,6 @@
 <template>
-    <div class="project-card" v-if="(!(index.index > index.no))">
-        <div class="project">
+    <div class="project-card">
+        <div class="project website" v-if="(project.class == 'website')">
             <div class="image">
                 <div></div>
                 <img :src="require(`@/assets/project-images/${project.alias}.png`)" :alt="`${project.alias} Project Image`">
@@ -8,6 +8,51 @@
             <div class="image">
                 <div></div>
                 <img :src="require(`@/assets/project-images/${project.alias}.png`)" :alt="`${project.alias} Project Image`">
+            </div>
+            <router-link :to="route.includes('/upwork') ? { path: `/upwork/project/${project.alias}`} : { name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
+        </div>
+
+        <div class="project mobile-app" v-if="(project.class == 'mobile-app')">
+            <div class="image">
+                <div></div>
+                <img :src="require(`@/assets/project-images/${project.alias}1.png`)" :alt="`${project.alias} Project Image`">
+            </div>
+            <div class="image">
+                <div></div>
+                <img :src="require(`@/assets/project-images/${project.alias}2.png`)" :alt="`${project.alias} Project Image`">
+            </div>
+            <div class="image">
+                <div></div>
+                <img :src="require(`@/assets/project-images/${project.alias}3.png`)" :alt="`${project.alias} Project Image`">
+            </div>
+            <router-link :to="route.includes('/upwork') ? { path: `/upwork/project/${project.alias}`} : { name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
+        </div>
+
+        <div class="project desktop-app" v-if="(project.class == 'desktop-app')">
+            <div class="image-ctn">
+                <div class="image">
+                    <div></div>
+                    <img :src="require(`@/assets/project-images/${project.alias}1.png`)" :alt="`${project.alias} Project Image`">
+                </div>
+                <div class="image">
+                    <div></div>
+                    <img :src="require(`@/assets/project-images/${project.alias}2.png`)" :alt="`${project.alias} Project Image`">
+                </div>
+            </div>
+
+            <div class="image-ctn">
+                <div class="image">
+                    <div></div>
+                    <img :src="require(`@/assets/project-images/${project.alias}3.png`)" :alt="`${project.alias} Project Image`">
+                </div>
+                <div class="image">
+                    <div></div>
+                    <img :src="require(`@/assets/project-images/${project.alias}4.png`)" :alt="`${project.alias} Project Image`">
+                </div>
+                <div class="image">
+                    <div></div>
+                    <img :src="require(`@/assets/project-images/${project.alias}5.png`)" :alt="`${project.alias} Project Image`">
+                </div>
             </div>
             <router-link :to="route.includes('/upwork') ? { path: `/upwork/project/${project.alias}`} : { name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
         </div>
@@ -22,7 +67,7 @@ import { computed } from 'vue'
 
 export default {
     name: 'ProjectCard',
-    props: [ 'project', 'index' ],
+    props: [ 'project' ],
     data() {
         return {
             route: computed(() => useRoute().path)
@@ -43,13 +88,11 @@ export default {
         position: relative;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
         width: 473px;
         height: 380px;
         padding: 9px;
         border-radius: 5px;
-        background: #FFFFFF;
-        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
 
         transition: 0.5s ease all;
 
@@ -58,41 +101,115 @@ export default {
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
         }
 
-        .image {
-            position: relative;
-            border-radius: 5px;
+        img {
+            object-fit: cover;
+        }
 
-            img {
-                object-fit: cover;
-                object-position: top;
-                width: 100%;
-                height: 100%;
-            }
+        &.website {
+            align-items: flex-end;
+            background: #FFFFFF;
+            box-shadow: 0px 3px 4px rgba(0, 0, 0, .25);
 
-            &:nth-of-type(1) {
-                width: 260px;
-                height: 276px;
-            }
-
-            &:nth-of-type(2) {
-                width: 142px;
-                height: 100%;
+            .image {
+                position: relative;
+                border-radius: 5px;
 
                 img {
+                    object-position: top;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                }
+
+                &:nth-of-type(1) {
+                    width: 260px;
+                    height: 276px;
+                }
+
+                &:nth-of-type(2) {
+                    width: 142px;
+                    height: 100%;
+
+                    img {
+                        object-position: bottom;
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
+                    z-index: 100;
+                }
+            }
+        }
+
+        &.mobile-app {
+            align-items: flex-start;
+            .image {
+                position: relative;
+                width: 29.5%;
+                border-radius: 5px;
+
+                &:nth-of-type(2) {
+                    align-self: flex-end;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0 0 4px 0;
+                    border-radius: 5px;
+                    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
+                    z-index: 100;
+                }
+
+                img {
+                    width: 100%;
+                    border-radius: 5px;
                     object-position: bottom;
                 }
             }
+        }
 
-            &::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
+        &.desktop-app {
+            .image-ctn {
+                display: flex;
+                flex-direction: column;
+                width: 58.5%;
+                align-self: flex-end;
+                gap: 3px;
+
+                &:nth-of-type(2) {
+                    width: 35.5%;
+                    align-self: flex-start;
+                }
+            }
+            .image {
+                position: relative;
                 width: 100%;
-                height: 100%;
+                height: fit-content;
                 border-radius: 5px;
-                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
-                z-index: 100;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0 0 4px 0;
+                    border-radius: 5px;
+                    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
+                    z-index: 100;
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 5px;
+                }
             }
         }
 
@@ -115,15 +232,17 @@ export default {
             height: 305px;
             padding: 7px;
 
-            .image {
-                &:nth-of-type(1) {
-                    width: 210px;
-                    height: 220px;
-                }
+            &.website {
+                .image {
+                    &:nth-of-type(1) {
+                        width: 210px;
+                        height: 220px;
+                    }
 
-                &:nth-of-type(2) {
-                    width: 113px;
-                    height: 100%;
+                    &:nth-of-type(2) {
+                        width: 113px;
+                        height: 100%;
+                    }
                 }
             }
         }
@@ -143,15 +262,17 @@ export default {
             height: 206px;
             padding: 4px;
 
-            .image {
-                &:nth-of-type(1) {
-                    width: 140px;
-                    height: 148px;
-                }
+            &.website {
+                .image {
+                    &:nth-of-type(1) {
+                        width: 140px;
+                        height: 148px;
+                    }
 
-                &:nth-of-type(2) {
-                    width: 75px;
-                    height: 100%;
+                    &:nth-of-type(2) {
+                        width: 75px;
+                        height: 100%;
+                    }
                 }
             }
         }
