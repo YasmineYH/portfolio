@@ -5,7 +5,13 @@
                 <div class="details">
                     <h3>{{ state.project.title }}</h3>
                     <p class="normal-p">{{ state.project.desc }}</p>
-                    <button class="light-btn"><a :href="state.project.link" target="_blank">Visit Site</a></button>
+                    <div class="visit-site">
+                        <button class="light-btn">Visit Site</button>
+                        <div>
+                            <a :href="state.project.link[0]" target="_blank" v-if="state.project.link[0]">Figma Prototype</a>
+                            <a :href="state.project.link[1]" target="_blank" v-if="state.project.link[1]">Final Website</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="assets">
@@ -30,7 +36,13 @@
 			<div class="tool-ctn"><ToolCard v-for="(tool, index) in state.project.tools" :key="index" :tool="tool" /></div>
         </div>
 
-        <button class="light-btn"><a :href="state.project.link" target="_blank">Visit Site</a></button>
+        <div class="visit-site">
+            <button class="light-btn" style="margin:auto;">Visit Site</button>
+            <div>
+                <a :href="state.project.link" target="_blank">Figma Prototype</a>
+                <a :href="state.project.link" target="_blank">Final Website</a>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -156,6 +168,44 @@ export default {
             text-decoration: none;
             height: 100%;
             width: 100%;
+        }
+    }
+
+    .visit-site {
+        margin: auto;
+
+        &:hover > div {
+            display: flex;
+            transform: scale(1) translateX(0);
+        }
+
+        div {
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 5px 5px;
+            margin-top: 25px;
+            width: 200px;
+            text-align: center;
+            background: #FFFFFF;
+            border-radius: 5px;
+            transition: .3s ease-out;
+            display: flex;
+            transform: scale(0) translateX(-100px);
+            transform-origin: top;
+
+            a {
+                text-decoration: none;
+                width: 150px;
+                padding: 10px;
+                transition: .3s ease-in;
+
+                &:hover {
+                    transform: translateY(2px);
+                }
+            }
         }
     }
 

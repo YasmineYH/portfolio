@@ -139,6 +139,14 @@ html {
 		line-height: 23px;
 	}
 
+	.not-available {
+		text-align: center;
+		margin: auto;
+		margin-top: 25px;
+		font-size: 14px;
+		max-width: 500px;
+	}
+
 	button {
 		display: block;
 		outline: none;

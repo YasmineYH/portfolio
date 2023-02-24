@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<h1 class="home-h1">Web |  UI Designer</h1>
+		<h1 class="home-h1">Web |  UI Developer</h1>
 
 		<div class="header-graphic">
 			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
@@ -111,7 +111,8 @@
 			<h2>Get a quote</h2>
 
 			<form ref="form" @submit.prevent="sendEmail">
-				<p>Please fill this form, Sir/Ma, and I’ll get in touch as soon as possible!</p>
+				<p class="form-title">Please fill this form, Sir/Ma, and I’ll get in touch as soon as possible!</p>
+				<p class="not-available">Unfortunately, this form is not functional at the moment, please call me directly (00229 90943222) or email me (hyyasmine@gmail.com). Thank you!</p>
 
 				<div>
 					<!--<input type="text" placeholder="Your full name here..." name="quote_name">-->
@@ -703,7 +704,7 @@ export default {
         background: #FFFFFF;
         box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 
-		p {
+		p.form-title {
 			font-weight: 500;
             font-size: 18px;
 			text-align: center;

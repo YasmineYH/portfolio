@@ -1,8 +1,9 @@
 <template>
     <div class="book-me">
         <h1>Thank you so much for your interest in working with me! Please fill out the information below and I’ll get in touch.</h1>
+        <p class="not-available">Unfortunately, this form is not functional at the moment, please call me directly (00229 90943222) or email me (hyyasmine@gmail.com). Thank you!</p>
 
-        <form action="">
+        <form>
             <div class="form-ctn">
                 <div class="input-ctn">
                     <input type="text" placeholder="Full name">

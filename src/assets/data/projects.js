@@ -19,7 +19,7 @@ export const projects = {
                 name: 'figma'
             }
         ],
-        link: 'https://www.figma.com/proto/5Ybi1zzgqfJs2M6y8AkwIi/HEALTHIC?page-id=487%3A90&node-id=487%3A91&viewport=380%2C48%2C0.22&scaling=min-zoom&starting-point-node-id=487%3A91'
+        link: ['https://www.figma.com/proto/5Ybi1zzgqfJs2M6y8AkwIi/HEALTHIC?page-id=487%3A90&node-id=487%3A91&viewport=380%2C48%2C0.22&scaling=min-zoom&starting-point-node-id=487%3A91']
     },
     yasso: {
         class: 'website',
@@ -49,7 +49,7 @@ export const projects = {
                 name: 'webflow',
             }
         ],
-        link: "https://www.figma.com/proto/eqkVG1JimBr8MVmdfs5MYG/Yasso's-World?page-id=0%3A1&node-id=14%3A29&starting-point-node-id=14%3A29&scaling=scale-down-width"
+        link: ["https://www.figma.com/proto/eqkVG1JimBr8MVmdfs5MYG/Yasso's-World?page-id=0%3A1&node-id=14%3A29&starting-point-node-id=14%3A29&scaling=scale-down-width"]
     },
     diem: {
         class: 'website',
@@ -77,13 +77,16 @@ export const projects = {
                 name: 'javaScript'
             }
         ],
-        link: 'https://yasmineyh.github.io/bicm/'
+        link: [
+            'https://www.figma.com/proto/Oa5UkSUbGHYYynXYgzihZO/BICM---Final?page-id=1375%3A2914&node-id=1375%3A2915&starting-point-node-id=1375%3A2915',
+            'https://yasmineyh.github.io/bicm/'
+        ]
     },
     bicm: {
         class: 'website',
         alias: 'bicm',
         title: 'BICM Consultants Website (Final Idea)',
-        desc: 'This was the final design we (Myself and the Company) settled on after a lot of iterations. The full user interface was designed on Figma, and then translated to code using Vue.js and a few other dependencies.',
+        desc: 'This was the final design we (Myself and the Company) settled on after a lot of iterations. The full user interface was designed on Figma',
         colors: [
             'background: #72BBEF',
             'background: #000000',
@@ -98,7 +101,7 @@ export const projects = {
                 name: 'figma'
             }
         ],
-        link: 'https://www.figma.com/proto/Oa5UkSUbGHYYynXYgzihZO/BICM---Final?page-id=608%3A2641&node-id=654%3A3049&viewport=241%2C48%2C0.07&scaling=scale-down-width&starting-point-node-id=608%3A2643'
+        link: ['https://www.figma.com/proto/Oa5UkSUbGHYYynXYgzihZO/BICM---Final?page-id=608%3A2641&node-id=654%3A3049&viewport=241%2C48%2C0.07&scaling=scale-down-width&starting-point-node-id=608%3A2643']
     },
     chefart: {
         class: 'website',
@@ -118,7 +121,7 @@ export const projects = {
                 name: 'figma'
             }
         ],
-        link: 'https://www.figma.com/proto/W9cacBk1dUpQQxgzob4ulC/Design-Templates?page-id=0%3A1&node-id=0%3A1&viewport=241%2C48%2C0.07&scaling=scale-down-width&starting-point-node-id=2%3A2'
+        link: ['https://www.figma.com/proto/W9cacBk1dUpQQxgzob4ulC/Design-Templates?page-id=0%3A1&node-id=0%3A1&viewport=241%2C48%2C0.07&scaling=scale-down-width&starting-point-node-id=2%3A2']
     },
     goodpie: {
         class: 'website',
@@ -137,7 +140,7 @@ export const projects = {
                 name: 'figma'
             }
         ],
-        link: 'https://www.figma.com/proto/gyV0X7DFy6lX2Tn1hOA984/GoodPie?page-id=0%3A1&node-id=1%3A2&viewport=380%2C48%2C0.08&scaling=min-zoom&starting-point-node-id=1%3A2'
+        link: ['https://www.figma.com/proto/gyV0X7DFy6lX2Tn1hOA984/GoodPie?page-id=0%3A1&node-id=1%3A2&viewport=380%2C48%2C0.08&scaling=min-zoom&starting-point-node-id=1%3A2']
     },
     chefartapp: {
         class: 'mobile-app',
@@ -156,7 +159,7 @@ export const projects = {
                 name: 'figma'
             }
         ],
-        link: 'https://www.figma.com/proto/hABGuU56Tr1PtcS5QrBvsR/Delivery-App?page-id=0%3A1&node-id=5%3A11&viewport=7%2C957%2C0.59&scaling=scale-down&starting-point-node-id=5%3A11'
+        link: ['https://www.figma.com/proto/hABGuU56Tr1PtcS5QrBvsR/Delivery-App?page-id=0%3A1&node-id=5%3A11&viewport=7%2C957%2C0.59&scaling=scale-down&starting-point-node-id=5%3A11']
     },
     allura: {
         class: 'mobile-app',
@@ -174,7 +177,7 @@ export const projects = {
                 name: 'figma'
             }
         ],
-        link: 'https://www.figma.com/proto/QGplQiZXYzW8JcQXpEZWfq/Allura-Conversation-AI?page-id=0%3A1&node-id=2%3A2&viewport=453%2C449%2C0.14&scaling=scale-down&starting-point-node-id=2%3A2'
+        link: ['https://www.figma.com/proto/QGplQiZXYzW8JcQXpEZWfq/Allura-Conversation-AI?page-id=0%3A1&node-id=2%3A2&viewport=453%2C449%2C0.14&scaling=scale-down&starting-point-node-id=2%3A2']
     },
     univle: {
         class: 'desktop-app',
@@ -205,6 +208,9 @@ export const projects = {
                 name: 'vue'
             },
         ],
-        link: 'https://www.figma.com/proto/NnyFwccyRbZLsYDbftH53Y/Unilorin-VLE?page-id=1103%3A798&node-id=1103%3A1062&viewport=6995%2C451%2C1.57&scaling=min-zoom&starting-point-node-id=1103%3A1062'
+        link: [
+            'https://www.figma.com/proto/NnyFwccyRbZLsYDbftH53Y/Unilorin-VLE?page-id=1103%3A798&node-id=1103%3A1062&viewport=6995%2C451%2C1.57&scaling=min-zoom&starting-point-node-id=1103%3A1062',
+            'http://univleproject.herokuapp.com/'
+        ]
     },
 }
