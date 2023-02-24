@@ -20,7 +20,11 @@ export const tools = [
         level: '75%'
     },
     {
-        name: 'webflow',
-        level: '45%'
+        name: 'php',
+        level: '40%'
+    },
+    {
+        name: 'laravel',
+        level: '40%'
     }
 ]

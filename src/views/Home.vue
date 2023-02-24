@@ -93,9 +93,7 @@
 
 		<div class="about">
 			<div>
-				<p class="normal-p">After my degree in Computer Science at the University of Ilorin, Nigeria in 2022, I went on ahead to live my dream: 
-					work with actual people! I at last, had the opportunity to give actual value back to my society; 
-					helping businesses and entrepreneurs find their place, as well as an audience, in the global community. The Internet.
+				<p class="normal-p">I am a passionate and ever-learning Web and UI Designer with experience in Frontend Development and UI Design, primarily using Figma, Html and Css, JavaScript, Vue.js, and Webflow. I am seeking a position where my creativity, problem-solving skills, and design thinking can be honed, challenged and utilized for the utmost growth and satisfaction of my clients and their businesses.
 				</p>
 
 				<p class="normal-p">
@@ -695,11 +693,11 @@ export default {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		height: 500px;
 		width: 73vw;
 		max-width: 1240px;
 		margin: auto;
 		margin-top: 90px;
+		padding: 50px 0;
 		border-radius: 5px;
         background: #FFFFFF;
         box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
