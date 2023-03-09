@@ -27,7 +27,8 @@ export const projects = {
             'ui',
             'frontend',
             'backend'
-        ]
+        ],
+        completion: 'UI and Frontend (Vue.js)'
     },
     yasso: {
         class: 'website',
@@ -52,9 +53,6 @@ export const projects = {
             },
             {
                 name: 'javaScript'
-            },
-            {
-                name: 'webflow',
             }
         ],
         link: [
@@ -63,7 +61,8 @@ export const projects = {
         tags: [
             'ui',
             'frontend',
-        ]
+        ],
+        completion: 'UI Only'
     },
     diem: {
         class: 'website',
@@ -98,7 +97,8 @@ export const projects = {
         tags: [
             'ui',
             'frontend',
-        ]
+        ],
+        completion: 'UI and Frontend (Html5/Css3)'
     },
     bicm: {
         class: 'website',
@@ -124,7 +124,8 @@ export const projects = {
         ],
         tags: [
             'ui',
-        ]
+        ],
+        completion: 'UI and Frontend (Vue.js)'
     },
     chefart: {
         class: 'website',
@@ -149,7 +150,8 @@ export const projects = {
         ],
         tags: [
             'ui',
-        ]
+        ],
+        completion: 'UI Only'
     },
     goodpie: {
         class: 'website',
@@ -173,7 +175,8 @@ export const projects = {
         ],
         tags: [
             'ui',
-        ]
+        ],
+        completion: 'UI Only'
     },
     chefartapp: {
         class: 'mobile-app',
@@ -197,7 +200,8 @@ export const projects = {
         ],
         tags: [
             'ui',
-        ]
+        ],
+        completion: 'UI Only'
     },
     allura: {
         class: 'mobile-app',
@@ -220,7 +224,8 @@ export const projects = {
         ],
         tags: [
             'ui',
-        ]
+        ],
+        completion: 'UI Only'
     },
     univle: {
         class: 'desktop-app',
@@ -258,6 +263,7 @@ export const projects = {
         tags: [
             'ui',
             'frontend',
-        ]
+        ],
+        completion: 'UI and Frontend (Vue.js)'
     },
 }

@@ -3,24 +3,29 @@
 		<h1 class="home-h1">Web |  UI Developer</h1>
 
 		<div class="header-graphic">
-			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
 				<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
+				<span class="tooltip-text">UI Only</span>
 			</router-link>
 
-			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/healthic`} : { name: 'Project', params: { projectId: `healthic`}}">
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/healthic`} : { name: 'Project', params: { projectId: `healthic`}}">
 				<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
+				<span class="tooltip-text">UI and Frontend (Vue.js)</span>
 			</router-link>
 
-			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/bicm`} : { name: 'Project', params: { projectId: `bicm`}}">
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/bicm`} : { name: 'Project', params: { projectId: `bicm`}}">
 				<img :src="require('@/assets/project-images/bicm.png')" alt="Bicm Project Image">
+				<span class="tooltip-text">UI and Frontend (Html5/Css3)</span>
 			</router-link>
 
-			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/chefart`} : { name: 'Project', params: { projectId: `chefart`}}">
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/chefart`} : { name: 'Project', params: { projectId: `chefart`}}">
 				<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
+				<span class="tooltip-text">UI Only</span>
 			</router-link>
 
-			<router-link class="link" :to="route.includes('/upwork') ? { path: `/upwork/project/goodpie`} : { name: 'Project', params: { projectId: `goodpie`}}">
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/goodpie`} : { name: 'Project', params: { projectId: `goodpie`}}">
 				<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
+				<span class="tooltip-text">UI Only</span>
 			</router-link>
 		</div>
 
@@ -143,7 +148,7 @@ export default {
 	components: {
 		ToolCard,
 		ProfileCard,
-		ProjectCard
+		ProjectCard,
 	},
 	setup() {
 		const route = computed(() => useRoute().path)

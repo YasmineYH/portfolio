@@ -1,6 +1,6 @@
 <template>
     <div class="project-card">
-        <div class="project website" v-if="(project.class == 'website')">
+        <div class="project website tooltip" v-if="(project.class == 'website')">
             <div class="image">
                 <div></div>
                 <img :src="require(`@/assets/project-images/${project.alias}.png`)" :alt="`${project.alias} Project Image`">
@@ -10,9 +10,10 @@
                 <img :src="require(`@/assets/project-images/${project.alias}.png`)" :alt="`${project.alias} Project Image`">
             </div>
             <router-link :to="route.includes('/upwork') ? { path: `/upwork/project/${project.alias}`} : { name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
+			<span class="tooltip-text">{{ project.completion }}</span>
         </div>
 
-        <div class="project mobile-app" v-if="(project.class == 'mobile-app')">
+        <div class="project mobile-app tooltip" v-if="(project.class == 'mobile-app')">
             <div class="image">
                 <div></div>
                 <img :src="require(`@/assets/project-images/${project.alias}1.png`)" :alt="`${project.alias} Project Image`">
@@ -26,9 +27,10 @@
                 <img :src="require(`@/assets/project-images/${project.alias}3.png`)" :alt="`${project.alias} Project Image`">
             </div>
             <router-link :to="route.includes('/upwork') ? { path: `/upwork/project/${project.alias}`} : { name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
+			<span class="tooltip-text">{{ project.completion }}</span>
         </div>
 
-        <div class="project desktop-app" v-if="(project.class == 'desktop-app')">
+        <div class="project desktop-app tooltip" v-if="(project.class == 'desktop-app')">
             <div class="image-ctn">
                 <div class="image">
                     <div></div>
@@ -55,6 +57,7 @@
                 </div>
             </div>
             <router-link :to="route.includes('/upwork') ? { path: `/upwork/project/${project.alias}`} : { name: 'Project', params: { projectId: `${project.alias}`}}" class="project-link"></router-link>
+			<span class="tooltip-text">{{ project.completion }}</span>
         </div>
 
         <h3>{{ project.title }}</h3>

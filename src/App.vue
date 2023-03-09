@@ -303,5 +303,29 @@ html {
 			}
 		}
 	}
+
+	.tooltip {
+		position: relative;
+
+		.tooltip-text {
+			position: absolute;
+			top: -50px;
+			left: 10px;
+			padding: 10px 15px;
+			background: #363636;
+			color: #FFFFFF;
+			border-radius: 5px;
+			visibility: hidden;
+			opacity: 0;
+			transition: all .3s ease-out;
+		}
+
+		&:hover {
+			.tooltip-text {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
 }
 </style>
