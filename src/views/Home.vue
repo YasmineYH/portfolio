@@ -90,7 +90,9 @@
 			<h2>Projects</h2>
 
 			<div class="projects-ctn">
-				<ProjectCard v-for="(project, index) in toggleProjects" :key="index" :project="project" />
+				<transition-group name="cardslide" appear>
+					<ProjectCard v-for="(project, index) in toggleProjects" :key="index" :project="project" />
+				</transition-group>
 			</div>
 
 			<button @click="toggleProjectsBtn" class="dark-btn">{{ projectsBtn }}</button>
@@ -571,7 +573,17 @@ export default {
 .projects {
 	margin-top: 250px;
 
+	/* .cardslide-enter-from {
+		opacity: 0;
+		transform: matrix(0.2);
+	}
+
+	.cardslide-enter-active {
+		transition: all .3s ease-in;
+	} */
+
 	.projects-ctn {
+		position: relative;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		row-gap: 112px;

@@ -1,17 +1,23 @@
 <template>
 	<div>
 		<Navigation />
-		<router-view />
+
+		<router-view v-slot="{ Component }">
+			<transition mode="out-in" name="route">
+				<component :is="Component"></component>
+			</transition>
+		</router-view>
+
 		<Footer />
 
-		<div class="loader-ctn">
+		<!--<div class="loader-ctn">
 			<div class="loader">
 				<div></div>
 				<div></div>
 				<div></div>
 				<div></div>
 			</div>
-		</div>
+		</div>-->
 	</div>
 </template>
 
@@ -48,7 +54,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.contentLoaded()
+		//this.contentLoaded()
 	}
 }
 </script>
@@ -327,5 +333,23 @@ html {
 			}
 		}
 	}
+}
+
+/* ROUTE TRANSITIONS */
+.route-enter-from {
+	opacity: 0;
+	transform: scaleX(.9);
+}
+
+.route-enter-active {
+	transition: all .5s ease-out .3s;
+}
+
+.route-leave-to {
+	opacity: 0;
+}
+
+.route-leave-active {
+	transition: all .3s ease-in-out;
 }
 </style>

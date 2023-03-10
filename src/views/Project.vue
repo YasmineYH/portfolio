@@ -27,8 +27,11 @@
                         <div v-for="(type, index) in state.project.type" :key="index" :style="type">{{ type.substring(13) }} <span :style="type">- Aa Bb Cc Dd Ff</span></div>
                     </div>
                 </div>
-            </div>
-            <img :src="require(`@/assets/project-displays/${state.project.alias}.png`)" alt="Bicm Project Display">
+            </div>¨
+
+            <transition name="projectimg" appear>
+                <img :src="require(`@/assets/project-displays/${state.project.alias}.png`)" alt="Bicm Project Display">
+            </transition>
         </div>
 
         <div class="tools">
@@ -93,7 +96,15 @@ export default {
             width: 440px;
             object-fit: contain;
             object-position: top;
-            borer: 1px solid;
+        }
+
+        .projectimg-enter-from {
+            opacity: 0;
+            transform: translateX(100px) translateY(-50px);
+        }
+
+        .projectimg-enter-active {
+            transition: all .9s ease-out 1s;
         }
 
         .left {
