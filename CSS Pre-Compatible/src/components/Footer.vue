@@ -34,23 +34,15 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
     width: 88vw;
 	max-width: 1740px;
     margin: 250px auto 35px auto;
 
     ul {
         list-style: none;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
         padding-top: 3px;
         gap: 35px;
@@ -61,12 +53,8 @@ footer {
     }
 
     .lines {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        justify-content: space-between;
         width: 30vw;
 
         div {
@@ -95,9 +83,7 @@ footer {
     }
 
     @media (max-width: 640px) {
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        justify-content: center;
         margin: 150px auto 25px auto;
 
         ul {

@@ -13,11 +13,20 @@ export default {
 
 <style lang="scss" scoped>
     .hamburger {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
         width: 35px;
         height: 13px;
+        -webkit-transition: all 1s ease;
+        -o-transition: all 1s ease;
         transition: all 1s ease;
 
         .line {
@@ -25,6 +34,8 @@ export default {
             height: 3px;
             border-radius: 10px;
             background: #363636;
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
             transition: all 1s ease;
 
             &:nth-of-type(1) {
@@ -37,10 +48,14 @@ export default {
             .line {
                 width: 80%;
                 background: #363636;
-                transform: rotate(35deg) translateY(-7px);
+                -webkit-transform: rotate(35deg) translateY(-7px);
+                    -ms-transform: rotate(35deg) translateY(-7px);
+                        transform: rotate(35deg) translateY(-7px);
 
                 &:nth-of-type(1) {
-                    transform: rotate(-35deg)  translateY(3px);
+                    -webkit-transform: rotate(-35deg)  translateY(3px);
+                        -ms-transform: rotate(-35deg)  translateY(3px);
+                            transform: rotate(-35deg)  translateY(3px);
                 }
             }
         }

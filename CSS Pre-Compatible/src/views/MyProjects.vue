@@ -33,9 +33,7 @@ export default {
 <style lang="scss" scoped>
 .my-projects {
 	.projects-ctn {
-		display: -ms-grid;
 		display: grid;
-		-ms-grid-columns: (1fr)(2);
 		grid-template-columns: repeat(2, 1fr);
 		row-gap: 112px;
 		width: 78vw;
@@ -46,9 +44,7 @@ export default {
 
 	@media (max-width: 1040px) {
 		.projects-ctn {
-			display: -ms-grid;
 			display: grid;
-			-ms-grid-columns: (1fr)(1);
 			grid-template-columns: repeat(1, 1fr);
 			row-gap: 112px;
 			width: 78vw;

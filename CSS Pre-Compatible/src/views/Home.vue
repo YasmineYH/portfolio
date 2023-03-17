@@ -2,37 +2,34 @@
 	<div class="home">
 		<h1 class="home-h1">Web |  UI Developer</h1>
 
-		<transition name="header" mode="out-in">
-			<div class="header-graphic" v-if="loaded">
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
-					<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
-					<span class="tooltip-text">UI Only</span>
-				</router-link>
+		<div class="header-graphic" v-if="loaded" @load="headerLoaded">
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
+				<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
+				<span class="tooltip-text">UI Only</span>
+			</router-link>
 
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/healthic`} : { name: 'Project', params: { projectId: `healthic`}}">
-					<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
-					<span class="tooltip-text">UI and Frontend (Vue.js)</span>
-				</router-link>
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/healthic`} : { name: 'Project', params: { projectId: `healthic`}}">
+				<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
+				<span class="tooltip-text">UI and Frontend (Vue.js)</span>
+			</router-link>
 
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/bicm`} : { name: 'Project', params: { projectId: `bicm`}}">
-					<img :src="require('@/assets/project-images/bicm.png')" alt="Bicm Project Image">
-					<span class="tooltip-text">UI and Frontend (Html5/Css3)</span>
-				</router-link>
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/bicm`} : { name: 'Project', params: { projectId: `bicm`}}">
+				<img :src="require('@/assets/project-images/bicm.png')" alt="Bicm Project Image">
+				<span class="tooltip-text">UI and Frontend (Html5/Css3)</span>
+			</router-link>
 
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/chefart`} : { name: 'Project', params: { projectId: `chefart`}}">
-					<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
-					<span class="tooltip-text">UI Only</span>
-				</router-link>
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/chefart`} : { name: 'Project', params: { projectId: `chefart`}}">
+				<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
+				<span class="tooltip-text">UI Only</span>
+			</router-link>
 
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/goodpie`} : { name: 'Project', params: { projectId: `goodpie`}}">
-					<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
-					<span class="tooltip-text">UI Only</span>
-				</router-link>
-			</div>
-		</transition>
-
-		<div class="header-loading" v-if="!loaded">
-			<h1>Images loading...</h1>
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/goodpie`} : { name: 'Project', params: { projectId: `goodpie`}}">
+				<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
+				<span class="tooltip-text">UI Only</span>
+			</router-link>
+		</div>
+		<div class="header-loading" v-else>
+			<h1>Content loading...</h1>
 		</div>
 
 		<div class="tools">
@@ -149,7 +146,7 @@ import { experiences } from '../assets/data/experiences'
 import emailjs from 'emailjs-com'
 
 import { useRoute } from 'vue-router'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 
 export default {
 	name: 'Home',
@@ -193,14 +190,13 @@ export default {
 		}
 
 
-		const loaded = ref(false)
-		onMounted( () => {
-			window.addEventListener('load', function() {
-				setTimeout(() => {
-					loaded.value = true
-				}, 1000);
-			})
-		})
+		let loaded = false
+		const headerLoaded = () => {
+			setTimeout(() => {
+				loaded = true
+				console.log('HEYYYYYY')
+			}, "2000");
+		}
 
 		return  {
 			tools,
@@ -217,6 +213,7 @@ export default {
 			quote_message,
 			sendEmail,
 			loaded,
+			headerLoaded
 		}
 	}
 }
@@ -224,29 +221,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.header-enter-from,
-.header-leave-to {
-	opacity: 0;
-	-webkit-transform: translate(0, 500px);
-		-ms-transform: translate(0, 500px);
-			transform: translate(0, 500px);
-}
-
-.header-enter-active,
-.header-leave-active {
-	-webkit-transition: all .5s ease-out;
-		-o-transition: all .5s ease-out;
-			transition: all .5s ease-out;
-}
-
-.header-enter-to,
-.header-leave-from {
-	opacity: 1;
-	-webkit-transform: translate(0, 0);
-		-ms-transform: translate(0, 0);
-			transform: translate(0, 0);
-}
-
 .header-graphic {
 	position: relative;
 	width: 100%;
@@ -254,12 +228,8 @@ export default {
 	height: 735px;
 	margin: auto;
 	margin-top: 100px;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-			justify-content: space-between;
+	justify-content: space-between;
 
 	.link {
 		position: relative;
@@ -299,22 +269,14 @@ export default {
 			border-radius: 5px;
 			width: 100%;
 			height: 100%;
-			-o-object-fit: cover;
-				object-fit: cover;
-			-o-object-position: top;
-				object-position: top;
-			-webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-				box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-			-webkit-transition: 0.5s ease all;
-				-o-transition: 0.5s ease all;
-					transition: 0.5s ease all;
-					
+			object-fit: cover;
+			object-position: top;
+			box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+			transition: 0.5s ease all;
+
 			&:hover {
-				-webkit-transform: rotateZ(-2deg) scale(1.01);
-					-ms-transform: rotate(-2deg) scale(1.01);
-						transform: rotateZ(-2deg) scale(1.01);
-				-webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
-					box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+				transform: rotateZ(-2deg) scale(1.01);
+				box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
 			}
 		}
 	}
@@ -435,12 +397,8 @@ export default {
 }
 
 .tools {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     width: 73vw;
 	max-width: 1240px;
     margin: auto;
@@ -449,11 +407,8 @@ export default {
 	@media (max-width: 1240px) {
 		gap: 20px;
 		row-gap: 35px;
-		-ms-flex-wrap: wrap;
-			flex-wrap: wrap;
-		-webkit-box-pack: center;
-			-ms-flex-pack: center;
-				justify-content: center;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 	@media (max-width: 640px) {
@@ -463,12 +418,8 @@ export default {
 
 .profile {
 	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-			justify-content: space-between;
+	justify-content: space-between;
     width: 88vw;
 	max-width: 1740px;
 	height: 595px;
@@ -476,13 +427,8 @@ export default {
 	margin-top: 250px;
 
 	.profile-side {
-		display: -webkit-box;
-		display: -ms-flexbox;
 		display: flex;
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-				flex-direction: column;
+		flex-direction: column;
 		margin-top: 5px;
 
 		&.left {
@@ -531,13 +477,8 @@ export default {
 			position: absolute;
 			top: 125px;
 			z-index: 2000;
-			display: -webkit-box;
-			display: -ms-flexbox;
 			display: flex;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-				-ms-flex-direction: column;
-					flex-direction: column;
+			flex-direction: column;
 			margin-top: 5px;
 
 			&.left {
@@ -555,13 +496,8 @@ export default {
 	@media (max-width: 640px) {
 		height: 905px;
 		margin-top: 150px;
-		-webkit-box-pack: unset;
-			-ms-flex-pack: unset;
-				justify-content: unset;
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-				flex-direction: column;
+		justify-content: unset;
+		flex-direction: column;
 
 		.profile-side {
 			position: unset;
@@ -607,12 +543,8 @@ export default {
 	margin-top: 250px;
 
 	.experience-ctn {
-		display: -webkit-box;
-		display: -ms-flexbox;
 		display: flex;
-		-webkit-box-pack: justify;
-			-ms-flex-pack: justify;
-				justify-content: space-between;
+		justify-content: space-between;
 		width: 73vw;
 		max-width: 1240px;
 		margin: auto;
@@ -632,8 +564,7 @@ export default {
 		.experience-ctn {
 			gap: 145px;
 			row-gap: 55px;
-			-ms-flex-wrap: wrap;
-				flex-wrap: wrap;
+			flex-wrap: wrap;
 		}
 	}
 
@@ -642,10 +573,7 @@ export default {
 		margin-bottom: 150px;
 
 		.experience-ctn {
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-				-ms-flex-direction: column;
-					flex-direction: column;
+			flex-direction: column;
 			text-align: center;
 			margin-top: 45px;
 
@@ -670,9 +598,7 @@ export default {
 
 	.projects-ctn {
 		position: relative;
-		display: -ms-grid;
 		display: grid;
-		-ms-grid-columns: (1fr)(2);
 		grid-template-columns: repeat(2, 1fr);
 		row-gap: 112px;
 		width: 78vw;
@@ -688,9 +614,7 @@ export default {
 
 	@media (max-width: 1040px) {
 		.projects-ctn {
-			display: -ms-grid;
 			display: grid;
-			-ms-grid-columns: (1fr)(1);
 			grid-template-columns: repeat(1, 1fr);
 			row-gap: 112px;
 			width: 78vw;
@@ -712,32 +636,19 @@ export default {
 }
 
 .about {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	width: -webkit-fit-content;
-	width: -moz-fit-content;
 	width: fit-content;
 	margin: auto;
 	margin-top: 250px;
 
 	div {
-		display: -webkit-box;
-		display: -ms-flexbox;
 		display: flex;
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-				flex-direction: column;
+		flex-direction: column;
 		gap: 15px;
 		width: 530px;
-		height: -webkit-fit-content;
-		height: -moz-fit-content;
 		height: fit-content;
 		margin-top: 100px;
 		margin-right: -25px;
-		-webkit-transition: 1s ease-out all;
-		-o-transition: 1s ease-out all;
 		transition: 1s ease-out all;
 
 		p {
@@ -751,16 +662,12 @@ export default {
 
 	img {
 		width: 360px;
-		-webkit-transition: 1s ease-out all;
-		-o-transition: 1s ease-out all;
 		transition: 1s ease-out all;
 	}
 
 	&:hover {
 		img {
-			-webkit-transform: translate(10px, 0) scale(1.01);
-				-ms-transform: translate(10px, 0) scale(1.01);
-					transform: translate(10px, 0) scale(1.01);
+			transform: translate(10px, 0) scale(1.01);
 		}
 	}
 
@@ -778,15 +685,10 @@ export default {
 	}
 
 	@media (max-width: 840px) {
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-				flex-direction: column;
+		flex-direction: column;
 
 		div {
-			-webkit-box-ordinal-group: 2;
-				-ms-flex-order: 1;
-					order: 1;
+			order: 1;
 			margin-right: unset;
 			width: 73vw;
 
@@ -808,10 +710,8 @@ export default {
 			height: 50vw;
 			margin-bottom: 15px;
 			border-bottom: 2px solid #363636;
-			-o-object-fit: cover;
-				object-fit: cover;
-			-o-object-position: top;
-				object-position: top;
+			object-fit: cover;
+			object-position: top;
 		}
 	}
 }
@@ -820,19 +720,10 @@ export default {
 	margin-top: 250px;
 
 	form {
-		display: -webkit-box;
-		display: -ms-flexbox;
 		display: flex;
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-				flex-direction: column;
-		-webkit-box-pack: center;
-			-ms-flex-pack: center;
-				justify-content: center;
-		-webkit-box-align: center;
-			-ms-flex-align: center;
-				align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		width: 73vw;
 		max-width: 1240px;
 		margin: auto;
@@ -840,8 +731,7 @@ export default {
 		padding: 50px 0;
 		border-radius: 5px;
         background: #FFFFFF;
-        -webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-                box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 
 		p.form-title {
 			font-weight: 500;
@@ -850,16 +740,9 @@ export default {
 		}
 
 		div {
-			display: -webkit-box;
-			display: -ms-flexbox;
 			display: flex;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-				-ms-flex-direction: column;
-					flex-direction: column;
-			-webkit-box-align: center;
-				-ms-flex-align: center;
-					align-items: center;
+			flex-direction: column;
+			align-items: center;
 			gap: 35px;
 			margin-top: 45px;
 
@@ -874,31 +757,12 @@ export default {
 				border: 1px solid #36363600;
 				font-weight: 500;
 				font-size: 15px;
-                -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-                        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-				-webkit-transition: .5s ease-out;
-				-o-transition: .5s ease-out;
+                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
 				transition: .5s ease-out;
 
 				&:hover,
 				&:focus {
 					border: 1px solid #36363663;
-				}
-
-				&::-webkit-input-placeholder {
-					color: #363636;
-				}
-
-				&::-moz-placeholder {
-					color: #363636;
-				}
-
-				&:-ms-input-placeholder {
-					color: #363636;
-				}
-
-				&::-ms-input-placeholder {
-					color: #363636;
 				}
 
 				&::placeholder {

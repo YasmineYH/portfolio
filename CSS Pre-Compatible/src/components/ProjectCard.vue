@@ -89,53 +89,36 @@ export default {
 
     .project {
         position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        justify-content: space-between;
         width: 473px;
         height: 380px;
         padding: 9px;
         border-radius: 5px;
-        -webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
-                box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
-
-        -webkit-transition: 0.5s ease all;
-
-        -o-transition: 0.5s ease all;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
 
         transition: 0.5s ease all;
 
         &:hover {
-            -webkit-transform: rotateZ(-2deg) scale(1.01);
-                -ms-transform: rotate(-2deg) scale(1.01);
-                    transform: rotateZ(-2deg) scale(1.01);
-            -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
-                    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+            transform: rotateZ(-2deg) scale(1.01);
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
         }
 
         img {
-            -o-object-fit: cover;
-               object-fit: cover;
+            object-fit: cover;
         }
 
         &.website {
-            -webkit-box-align: end;
-                -ms-flex-align: end;
-                    align-items: flex-end;
+            align-items: flex-end;
             background: #FFFFFF;
-            -webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, .25);
-                    box-shadow: 0px 3px 4px rgba(0, 0, 0, .25);
+            box-shadow: 0px 3px 4px rgba(0, 0, 0, .25);
 
             .image {
                 position: relative;
                 border-radius: 5px;
 
                 img {
-                    -o-object-position: top;
-                       object-position: top;
+                    object-position: top;
                     width: 100%;
                     height: 100%;
                     border-radius: 5px;
@@ -151,8 +134,7 @@ export default {
                     height: 100%;
 
                     img {
-                        -o-object-position: bottom;
-                           object-position: bottom;
+                        object-position: bottom;
                     }
                 }
 
@@ -164,25 +146,21 @@ export default {
                     width: 100%;
                     height: 100%;
                     border-radius: 5px;
-                    -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
-                            box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
+                    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
                     z-index: 100;
                 }
             }
         }
 
         &.mobile-app {
-            -webkit-box-align: start;
-                -ms-flex-align: start;
-                    align-items: flex-start;
+            align-items: flex-start;
             .image {
                 position: relative;
                 width: 29.5%;
                 border-radius: 5px;
 
                 &:nth-of-type(2) {
-                    -ms-flex-item-align: end;
-                        align-self: flex-end;
+                    align-self: flex-end;
                 }
 
                 &::after {
@@ -190,45 +168,34 @@ export default {
                     position: absolute;
                     inset: 0 0 4px 0;
                     border-radius: 5px;
-                    -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
-                            box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
+                    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
                     z-index: 100;
                 }
 
                 img {
                     width: 100%;
                     border-radius: 5px;
-                    -o-object-position: bottom;
-                       object-position: bottom;
+                    object-position: bottom;
                 }
             }
         }
 
         &.desktop-app {
             .image-ctn {
-                display: -webkit-box;
-                display: -ms-flexbox;
                 display: flex;
-                -webkit-box-orient: vertical;
-                -webkit-box-direction: normal;
-                    -ms-flex-direction: column;
-                        flex-direction: column;
+                flex-direction: column;
                 width: 58.5%;
-                -ms-flex-item-align: end;
-                    align-self: flex-end;
+                align-self: flex-end;
                 gap: 3px;
 
                 &:nth-of-type(2) {
                     width: 35.5%;
-                    -ms-flex-item-align: start;
-                        align-self: flex-start;
+                    align-self: flex-start;
                 }
             }
             .image {
                 position: relative;
                 width: 100%;
-                height: -webkit-fit-content;
-                height: -moz-fit-content;
                 height: fit-content;
                 border-radius: 5px;
 
@@ -237,8 +204,7 @@ export default {
                     position: absolute;
                     inset: 0 0 4px 0;
                     border-radius: 5px;
-                    -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
-                            box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
+                    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.20);
                     z-index: 100;
                 }
 
@@ -286,12 +252,10 @@ export default {
 	}
 
     @media (max-width: 1040px) {
-        -ms-grid-column-align: center;
-            justify-self: center;
+        justify-self: center;
 
         &:nth-of-type(2n) {
-            -ms-grid-column-align: center;
-                justify-self: center;
+            justify-self: center;
         }
 	}
 

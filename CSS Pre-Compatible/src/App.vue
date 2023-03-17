@@ -66,8 +66,7 @@ export default {
 * {
 	margin: 0;
 	padding: 0;
-	-webkit-box-sizing: border-box;
-		box-sizing: border-box;
+	box-sizing: border-box;
 	font-family: 'Raleway';
 	color: #363636;
 }
@@ -163,12 +162,9 @@ html {
 		text-align: center;
 		width: 170px;
 		height: 43px;
-		-webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-				box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+		box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 		cursor: pointer;
 		border-radius: 5px;
-		-webkit-transition: .3s ease-in;
-		-o-transition: .3s ease-in;
 		transition: .3s ease-in;
 
 		&.light-btn {
@@ -176,26 +172,19 @@ html {
 
 			&:hover {
 				color: #363636;
-				-webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
-					box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
-				-webkit-transform: rotateZ(-2deg) scale(1.01);
-					-ms-transform: rotate(-2deg) scale(1.01);
-						transform: rotateZ(-2deg) scale(1.01);
+				box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
+				transform: rotateZ(-2deg) scale(1.01);
 			}
 		}
 
 		&.dark-btn {
 			color: #FFFFFF;
 			background: #363636;
-			-webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
-				box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
+			box-shadow: 0px 3px 4px rgba(0, 0, 0, 0);
 
 			&:hover {
-				-webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-					box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-				-webkit-transform: rotateZ(-2deg) scale(1.01);
-					-ms-transform: rotate(-2deg) scale(1.01);
-						transform: rotateZ(-2deg) scale(1.01);
+				box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+				transform: rotateZ(-2deg) scale(1.01);
 			}
 		}
 	}
@@ -231,7 +220,6 @@ html {
 		position: fixed;
 		top: 0;
 		left: 0;
-		display: -ms-grid;
 		display: grid;
 		place-items: center;
 		width: 100vw;
@@ -239,13 +227,9 @@ html {
 		z-index: 100000;
 		background: #363636;
 		background: #FFD4AC;
-		-webkit-transition: 1s ease-out;
-		-o-transition: 1s ease-out;
 		transition: 1s ease-out;
 
 		.loader {
-			display: -webkit-box;
-			display: -ms-flexbox;
 			display: flex;
 			gap: 10px;
 			height: 35px;
@@ -257,55 +241,30 @@ html {
 				background: #FFD4AC;
 				background: #363636;
 				margin-top: auto;
-				-webkit-transform-origin: bottom;
-					-ms-transform-origin: bottom;
-						transform-origin: bottom;
-				-webkit-transition: all ease-in;
-					-o-transition: all ease-in;
-						transition: all ease-in;
-				-webkit-animation-direction: alternate;
-					animation-direction: alternate;
-				-webkit-animation-iteration-count: infinite;
-					animation-iteration-count: infinite;
-				-webkit-animation-play-state: running;
-					animation-play-state: running;
+				transform-origin: bottom;
+				transition: all ease-in;
+				animation-direction: alternate;
+				animation-iteration-count: infinite;
+				animation-play-state: running;
 
 				&:nth-of-type(1) {
-					-webkit-animation-name: one;
-						animation-name: one;
-					-webkit-animation-duration: 1s;
-						animation-duration: 1s;
+					animation-name: one;
+					animation-duration: 1s;
 				}
 
 				&:nth-of-type(2) {
-					-webkit-animation-name: two;
-						animation-name: two;
-					-webkit-animation-duration: .6s;
-						animation-duration: .6s;
+					animation-name: two;
+					animation-duration: .6s;
 				}
 
 				&:nth-of-type(3) {
-					-webkit-animation-name: three;
-						animation-name: three;
-					-webkit-animation-duration: .8s;
-						animation-duration: .8s;
+					animation-name: three;
+					animation-duration: .8s;
 				}
 
 				&:nth-of-type(4) {
-					-webkit-animation-name: four;
-						animation-name: four;
-					-webkit-animation-duration: .4s;
-						animation-duration: .4s;
-				}
-			}
-
-			@-webkit-keyframes one {
-				from {
-					height: 5px;
-				}
-
-				to {
-					height: 25px;
+					animation-name: four;
+					animation-duration: .4s;
 				}
 			}
 
@@ -319,16 +278,6 @@ html {
 				}
 			}
 
-			@-webkit-keyframes two {
-				from {
-					height: 25px;
-				}
-
-				to {
-					height: 10px;
-				}
-			}
-
 			@keyframes two {
 				from {
 					height: 25px;
@@ -339,16 +288,6 @@ html {
 				}
 			}
 
-			@-webkit-keyframes three {
-				from {
-					height: 15px;
-				}
-
-				to {
-					height: 35px;
-				}
-			}
-
 			@keyframes three {
 				from {
 					height: 15px;
@@ -356,16 +295,6 @@ html {
 
 				to {
 					height: 35px;
-				}
-			}
-
-			@-webkit-keyframes four {
-				from {
-					height: 5px;
-				}
-
-				to {
-					height: 20px;
 				}
 			}
 
@@ -394,8 +323,6 @@ html {
 			border-radius: 5px;
 			visibility: hidden;
 			opacity: 0;
-			-webkit-transition: all .3s ease-out;
-			-o-transition: all .3s ease-out;
 			transition: all .3s ease-out;
 		}
 
@@ -411,15 +338,11 @@ html {
 /* ROUTE TRANSITIONS */
 .route-enter-from {
 	opacity: 0;
-	-webkit-transform: scaleX(.9);
-		-ms-transform: scaleX(.9);
-			transform: scaleX(.9);
+	transform: scaleX(.9);
 }
 
 .route-enter-active {
-	-webkit-transition: all .5s ease-out .3s;
-		-o-transition: all .5s ease-out .3s;
-		transition: all .5s ease-out .3s;
+	transition: all .5s ease-out .3s;
 }
 
 .route-leave-to {
@@ -427,8 +350,6 @@ html {
 }
 
 .route-leave-active {
-	-webkit-transition: all .3s ease-in-out;
-		-o-transition: all .3s ease-in-out;
-		transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
 }
 </style>

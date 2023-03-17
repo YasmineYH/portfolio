@@ -86,15 +86,9 @@ export default {
 <style lang="scss" scoped>
 nav {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: space-between;
+    align-items: center;
     width: 88vw;
 	max-width: 1740px;
     margin: 35px auto 0 auto;
@@ -103,9 +97,7 @@ nav {
         position: absolute;
         top: 50%;
         left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
 
         img {
             width: 153px;
@@ -114,8 +106,6 @@ nav {
 
     ul {
         list-style: none;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
 
         &:nth-of-type(1) {
@@ -131,47 +121,29 @@ nav {
     li {
         font-style: normal;
         letter-spacing: 0.05em;
-        -webkit-transition: 0.5s ease all;
-        -o-transition: 0.5s ease all;
         transition: 0.5s ease all;
 
         &:hover {
-            -webkit-transform: rotateZ(-2deg) scale(1.02);
-                -ms-transform: rotate(-2deg) scale(1.02);
-                    transform: rotateZ(-2deg) scale(1.02);
+            transform: rotateZ(-2deg) scale(1.02);
         }
 
         img {
             height: 20px;
-            -webkit-transition: 0.5s ease all;
-            -o-transition: 0.5s ease all;
             transition: 0.5s ease all;
 
             &:hover {
-                -webkit-transform: rotateZ(-2deg) scale(1.02);
-                    -ms-transform: rotate(-2deg) scale(1.02);
-                        transform: rotateZ(-2deg) scale(1.02);
-				-webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
-                    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+                transform: rotateZ(-2deg) scale(1.02);
+				box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
             }
         }
     }
 
     .mobile-nav {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        flex-direction: column;
+        align-items: center;
         gap: 80px;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        justify-content: space-between;
         position: absolute;
         right: 0;
         top: 50px;
@@ -181,15 +153,9 @@ nav {
         padding-bottom: 25px;
         padding-top: 5px;
         background: #363636;
-        -webkit-transition: .3s ease-out;
-        -o-transition: .3s ease-out;
         transition: .3s ease-out;
-        -webkit-transform: scale(.001);
-            -ms-transform: scale(.001);
-                transform: scale(.001);
-        -webkit-transform-origin: top right;
-            -ms-transform-origin: top right;
-                transform-origin: top right;
+        transform: scale(.001);
+        transform-origin: top right;
         opacity: 0;
 
         @media (max-width: 340px) {
@@ -198,19 +164,10 @@ nav {
 
         .mobile-nav-text {
             width: 100%;
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
-            -webkit-box-pack: justify;
-                -ms-flex-pack: justify;
-                    justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
             gap: 5px;
 
             li {
@@ -244,9 +201,7 @@ nav {
             position: unset;
             top: unset;
             left: unset;
-            -webkit-transform: unset;
-                -ms-transform: unset;
-                    transform: unset;
+            transform: unset;
             padding-top: 5px;
 
             img {

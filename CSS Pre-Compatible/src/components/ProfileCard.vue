@@ -88,39 +88,24 @@ export default {
 .profile-card {
     position: absolute;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
+    transform: translateX(-50%);
     padding-bottom: 120px;
 
     .profile {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+        flex-direction: column;
+        align-items: center;
         width: 570px;
         height: 475px;
         padding-top: 25px;
         border-radius: 5px;
         background: #FFFFFF;
-        -webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-                box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-        -webkit-transition: 0.5s ease all;
-        -o-transition: 0.5s ease all;
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
         transition: 0.5s ease all;
 
         &:hover {
-            -webkit-transform: rotateZ(0deg) scale(1.01);
-                -ms-transform: rotate(0deg) scale(1.01);
-                    transform: rotateZ(0deg) scale(1.01);
-            -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
-                    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+            transform: rotateZ(0deg) scale(1.01);
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
         }
 
         p {
@@ -133,10 +118,7 @@ export default {
             position: absolute;
             height: 445px;
             top: 150px;
-            -webkit-filter: drop-shadow(0px -10px 14px rgba(0, 0, 0, 0));
-                    filter: drop-shadow(0px -10px 14px rgba(0, 0, 0, 0));
-			-webkit-transition: 1s ease-out all;
-			-o-transition: 1s ease-out all;
+            filter: drop-shadow(0px -10px 14px rgba(0, 0, 0, 0));
 			transition: 1s ease-out all;
         }
     }

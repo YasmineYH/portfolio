@@ -78,19 +78,10 @@ export default {
 
 <style lang="scss" scoped>
 form {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 45px;
     width: 73vw;
     max-width: 1240px;
@@ -99,27 +90,17 @@ form {
     margin-top: 90px;
     border-radius: 5px;
     background: #FFFFFF;
-    -webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
 
     .form-ctn {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        flex-direction: column;
         width: 100%;
         gap: 35px;
 
         .input-ctn {
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
+            align-items: center;
             gap: 45px;
 
             input,
@@ -134,31 +115,12 @@ form {
                 border: 1px solid #36363600;
                 font-weight: 500;
                 font-size: 15px;
-                -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-                        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-                -webkit-transition: .5s ease-out;
-                -o-transition: .5s ease-out;
+                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
                 transition: .5s ease-out;
 
                 &:hover,
                 &:focus {
                     border: 1px solid #36363663;
-                }
-
-                &::-webkit-input-placeholder {
-                    color: #363636;
-                }
-
-                &::-moz-placeholder {
-                    color: #363636;
-                }
-
-                &:-ms-input-placeholder {
-                    color: #363636;
-                }
-
-                &::-ms-input-placeholder {
-                    color: #363636;
                 }
 
                 &::placeholder {
@@ -179,14 +141,11 @@ form {
                     width: 12px;
                     height: 10px;
                     background: #363636;
-                    -webkit-clip-path: polygon(50% 44%, 100% 0, 50% 100%, 0 0);
-                            clip-path: polygon(50% 44%, 100% 0, 50% 100%, 0 0);
+                    clip-path: polygon(50% 44%, 100% 0, 50% 100%, 0 0);
                 }
 
                 select {
-                    -webkit-appearance: none;
-                       -moz-appearance: none;
-                            appearance: none;
+                    appearance: none;
                     background: none;
 
                     &::-ms-expand {
@@ -200,13 +159,8 @@ form {
             }
 
             .checks-ctn {
-                display: -webkit-box;
-                display: -ms-flexbox;
                 display: flex;
-                -webkit-box-orient: vertical;
-                -webkit-box-direction: normal;
-                    -ms-flex-direction: column;
-                        flex-direction: column;
+                flex-direction: column;
                 gap: 15px;
                 width: 100%;
                 padding: 0 30px;
@@ -216,36 +170,25 @@ form {
                 }
 
                 .two-checks {
-                    display: -webkit-box;
-                    display: -ms-flexbox;
                     display: flex;
                     gap: 50px;
                 }
 
                 .check-ctn {
-                    display: -webkit-box;
-                    display: -ms-flexbox;
                     display: flex;
-                    -webkit-box-align: center;
-                        -ms-flex-align: center;
-                            align-items: center;
+                    align-items: center;
                     gap: 15px;
-                    width: -webkit-fit-content;
-                    width: -moz-fit-content;
                     width: fit-content;
                     height: 25px;
 
                     label {
-                        width: -webkit-fit-content;
-                        width: -moz-fit-content;
                         width: fit-content;
                     }
                         
                     input {
                         border: none;
                         outline: none;
-                        -webkit-box-shadow: none;
-                                box-shadow: none;
+                        box-shadow: none;
                         width: 15px;
                         height: 15px;
                         padding: 0;
@@ -264,10 +207,7 @@ form {
         .form-ctn {
             .input-ctn {
                 gap: 35px;
-                -webkit-box-orient: vertical;
-                -webkit-box-direction: normal;
-                    -ms-flex-direction: column;
-                        flex-direction: column;
+                flex-direction: column;
                 
                 input,
                 select,
@@ -287,11 +227,8 @@ form {
                     padding: 0 10px;
 
                     .two-checks {
-                        display: -webkit-box;
-                        display: -ms-flexbox;
                         display: flex;
-                        -ms-flex-wrap: wrap;
-                            flex-wrap: wrap;
+                        flex-wrap: wrap;
                         gap: 15px;
                     }
                 }

@@ -42,8 +42,8 @@
         <div class="visit-site">
             <button class="light-btn" style="margin:auto;">Visit Site</button>
             <div>
-                <a :href="state.project.link[0]" target="_blank" v-if="state.project.link[0]">Figma Prototype</a>
-                <a :href="state.project.link[1]" target="_blank" v-if="state.project.link[1]">Final Website</a>
+                <a :href="state.project.link" target="_blank">Figma Prototype</a>
+                <a :href="state.project.link" target="_blank">Final Website</a>
             </div>
         </div>
     </div>
@@ -80,13 +80,8 @@ export default {
 
 <style lang="scss" scoped>
 .project-details {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     gap: 150px;
     margin: auto;
     margin-top: 145px;
@@ -94,42 +89,27 @@ export default {
 
     .project-ctn {
         width: 100%;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        justify-content: space-between;
 
         img {
             width: 440px;
-            -o-object-fit: contain;
-               object-fit: contain;
-            -o-object-position: top;
-               object-position: top;
+            object-fit: contain;
+            object-position: top;
         }
 
         .projectimg-enter-from {
             opacity: 0;
-            -webkit-transform: translateX(100px) translateY(-50px);
-                -ms-transform: translateX(100px) translateY(-50px);
-                    transform: translateX(100px) translateY(-50px);
+            transform: translateX(100px) translateY(-50px);
         }
 
         .projectimg-enter-active {
-            -webkit-transition: all .9s ease-out 1s;
-            -o-transition: all .9s ease-out 1s;
             transition: all .9s ease-out 1s;
         }
 
         .left {
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
+            flex-direction: column;
             gap: 100px;
             width: 335px;
             margin-top: 105px;
@@ -143,8 +123,6 @@ export default {
                     margin-bottom: 32px;
 
                     div {
-                        display: -webkit-box;
-                        display: -ms-flexbox;
                         display: flex;
                         gap: 15px;
                         margin-top: 2px;
@@ -153,16 +131,11 @@ export default {
                             width: 45px;
                             height: 32px;
                             border-radius: 5px;
-                            -webkit-transition: 0.5s ease all;
-                            -o-transition: 0.5s ease all;
                             transition: 0.5s ease all;
 
                             &:hover {
-                                -webkit-transform: rotateZ(-5deg) scale(1.01);
-                                    -ms-transform: rotate(-5deg) scale(1.01);
-                                        transform: rotateZ(-5deg) scale(1.01);
-                                -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
-                                        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+                                transform: rotateZ(-5deg) scale(1.01);
+                                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
                             }
                         }
                     }
@@ -170,25 +143,18 @@ export default {
 
                 .type {
                     div {
-                        display: -webkit-box;
-                        display: -ms-flexbox;
                         display: flex;
-                        -webkit-box-align: center;
-                            -ms-flex-align: center;
-                                align-items: center;
+                        align-items: center;
                         margin-top: 5px;
                         margin-bottom: 15px;
                         border-radius: 5px;
                         border: 2px solid;
                         padding: 0 15px;
                         height: 35px;
-                        width: -webkit-fit-content;
-                        width: -moz-fit-content;
                         width: fit-content;
                         font-size: 15px;
                         font-weight: 500;
-                        -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
-                                box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
+                        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.1);
 
                         span {
                             font-weight: 700;
@@ -208,7 +174,6 @@ export default {
 
     button {
         a {
-            display: -ms-grid;
             display: grid;
             place-content: center;
             text-decoration: none;
@@ -221,23 +186,14 @@ export default {
         margin: auto;
 
         &:hover > div {
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -webkit-transform: scale(1) translateX(0);
-                -ms-transform: scale(1) translateX(0);
-                    transform: scale(1) translateX(0);
+            transform: scale(1) translateX(0);
         }
 
         div {
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
+            flex-direction: column;
             gap: 5px;
-            -webkit-box-align: center;
-                -ms-flex-align: center;
-                    align-items: center;
+            align-items: center;
             font-weight: 700;
             font-size: 15px;
             padding: 5px 5px;
@@ -246,31 +202,19 @@ export default {
             text-align: center;
             background: #FFFFFF;
             border-radius: 5px;
-            -webkit-transition: .3s ease-out;
-            -o-transition: .3s ease-out;
             transition: .3s ease-out;
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -webkit-transform: scale(0) translateX(-100px);
-                -ms-transform: scale(0) translateX(-100px);
-                    transform: scale(0) translateX(-100px);
-            -webkit-transform-origin: top;
-                -ms-transform-origin: top;
-                    transform-origin: top;
+            transform: scale(0) translateX(-100px);
+            transform-origin: top;
 
             a {
                 text-decoration: none;
                 width: 150px;
                 padding: 10px;
-                -webkit-transition: .3s ease-in;
-                -o-transition: .3s ease-in;
                 transition: .3s ease-in;
 
                 &:hover {
-                    -webkit-transform: translateY(2px);
-                        -ms-transform: translateY(2px);
-                            transform: translateY(2px);
+                    transform: translateY(2px);
                 }
             }
         }
@@ -281,14 +225,9 @@ export default {
         text-align: center;
 
         .tool-ctn {
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
-            -ms-flex-wrap: wrap;
-                flex-wrap: wrap;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 40px;
             width: 450px;
         }
@@ -309,20 +248,15 @@ export default {
             img {
                 width: 400px;
                 height: unset;
-                -o-object-fit: contain;
-                   object-fit: contain;
-                -o-object-position: top;
-                   object-position: top;
+                object-fit: contain;
+                object-position: top;
             }
         }
     }
 
     @media (max-width: 940px) {
         .project-ctn {
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                    flex-direction: column;
+            flex-direction: column;
             gap: 65px;
 
             .left {
