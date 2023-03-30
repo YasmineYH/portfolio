@@ -34,7 +34,7 @@ export const projects = {
         class: 'website',
         alias: 'yasso',
         title: 'Yasso’s World Blog',
-        desc: "Designed from scratch in Figma, and then coded in Html, Css and Javascript. I created all the assets used in this project.",
+        desc: "Designed from scratch in Figma. I created all the assets used in this project.",
         colors: [
             'background: #6C0000',
             'background: #FFBB55',
@@ -125,7 +125,7 @@ export const projects = {
         tags: [
             'ui',
         ],
-        completion: 'UI and Frontend (Vue.js)'
+        completion: 'UI only'
     },
     chefart: {
         class: 'website',

@@ -10,14 +10,16 @@
 
 		<Footer />
 
-		<!--<div class="loader-ctn">
+		<div class="loader-ctn">
 			<div class="loader">
 				<div></div>
 				<div></div>
 				<div></div>
 				<div></div>
 			</div>
-		</div>-->
+
+			<p>Thank you for stopping by! <br/> Please wait a moment while the portfolio loads..</p>
+		</div>
 	</div>
 </template>
 
@@ -54,7 +56,7 @@ export default {
 		}
 	},
 	mounted() {
-		//this.contentLoaded()
+		this.contentLoaded()
 	}
 }
 </script>
@@ -231,9 +233,19 @@ html {
 		position: fixed;
 		top: 0;
 		left: 0;
-		display: -ms-grid;
-		display: grid;
-		place-items: center;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+				flex-direction: column;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+				align-items: center;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+        justify-content: center;
 		width: 100vw;
 		height: calc(100 * var(--vh));
 		z-index: 100000;
@@ -378,6 +390,12 @@ html {
 					height: 20px;
 				}
 			}
+		}
+
+		p {
+			text-align: center;
+			line-height: 35px;
+			margin-top: 35px;
 		}
 	}
 

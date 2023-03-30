@@ -3,7 +3,7 @@
 		<h1 class="home-h1">Web |  UI Developer</h1>
 
 		<transition name="header" mode="out-in">
-			<div class="header-graphic" v-if="loaded">
+			<div class="header-graphic">
 				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
 					<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
 					<span class="tooltip-text">UI Only</span>
@@ -31,9 +31,9 @@
 			</div>
 		</transition>
 
-		<div class="header-loading" v-if="!loaded">
+		<!--<div class="header-loading" v-if="!loaded">
 			<h1>Images loading...</h1>
-		</div>
+		</div>-->
 
 		<div class="tools">
 			<ToolCard v-for="(tool, index) in tools" :key="index" :tool="tool" />
@@ -149,7 +149,7 @@ import { experiences } from '../assets/data/experiences'
 import emailjs from 'emailjs-com'
 
 import { useRoute } from 'vue-router'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 
 export default {
 	name: 'Home',
@@ -193,14 +193,14 @@ export default {
 		}
 
 
-		const loaded = ref(false)
+		//const loaded = ref(false)
 
-		onMounted( () => {
+		/*onMounted( () => {
 			console.log('MOUNTED')
 			setTimeout(() => {
 				loaded.value = true
 			}, 1000);
-		})
+		})*/
 
 		return  {
 			tools,
@@ -216,7 +216,7 @@ export default {
 			quote_email,
 			quote_message,
 			sendEmail,
-			loaded,
+			//loaded,
 		}
 	}
 }
