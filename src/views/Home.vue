@@ -194,12 +194,12 @@ export default {
 
 
 		const loaded = ref(false)
+
 		onMounted( () => {
-			window.addEventListener('load', function() {
-				setTimeout(() => {
-					loaded.value = true
-				}, 1000);
-			})
+			console.log('MOUNTED')
+			setTimeout(() => {
+				loaded.value = true
+			}, 1000);
 		})
 
 		return  {
