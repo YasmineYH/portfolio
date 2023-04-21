@@ -3,7 +3,7 @@ export const projects = {
         class: 'website',
         alias: 'healthic',
         title: 'Healthic Clinic App',
-        desc: 'On the Healthic Web Application, patients are able to create accounts, schedule and keep track of appointments, and also learn more about the clinic and its staff. This was a project I worked on as a conclusion to a Web Develoment training in 2020. I improved the User Interface roughly a year later, resulting in these visuals.',
+        desc: 'On the Healthic Web Application, patients are able to create accounts, schedule and keep track of appointments, and also learn more about the clinic and its staff. This was a project I worked on as a conclusion to a Web Develoment training in 2020. I improved the User Interface roughly a year later, resulting in these visuals. The web app is still in the development process, so some features might not be accessible.',
         colors: [
             'background: #FF1919',
             'background: #333333',
@@ -230,7 +230,7 @@ export const projects = {
     univle: {
         class: 'desktop-app',
         alias: 'univle',
-        desc: 'A virtual learning environment designed in Figma, and implemented with Vue.js and Laravel.',
+        desc: 'A virtual learning environment designed in Figma, and implemented with Vue.js and Laravel. The web app is still in the development process, so some features might not be accessible.',
         title: 'Virtual Learning Environment PWA',
         colors: [
             'background: #FBB786',
