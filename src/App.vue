@@ -75,7 +75,7 @@ export default {
 }
 
 html {
-	scrollbar-color: #FFD4AC #363636;
+	scrollbar-color: #FFE4D5 #363636;
 	scrollbar-width: thin;
 
 	&::-webkit-scrollbar {
@@ -84,11 +84,11 @@ html {
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background: #FFD4AC;
+		background: #FFE4D5;
 	}
 
 	body {
-		background: #FFD4AC;
+		background: #FFE4D5;
 		width: 100%;
 		overflow-x: hidden;
 	}
@@ -250,7 +250,7 @@ html {
 		height: calc(100 * var(--vh));
 		z-index: 100000;
 		background: #363636;
-		background: #FFD4AC;
+		background: #FFE4D5;
 		-webkit-transition: 1s ease-out;
 		-o-transition: 1s ease-out;
 		transition: 1s ease-out;
@@ -266,7 +266,7 @@ html {
 				width: 6px;
 				height: 25px;
 				border-radius: 20px;
-				background: #FFD4AC;
+				background: #FFE4D5;
 				background: #363636;
 				margin-top: auto;
 				-webkit-transform-origin: bottom;
