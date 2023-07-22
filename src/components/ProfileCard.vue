@@ -168,18 +168,23 @@ export default {
     @media (max-width: 640px) {
         .profile {
             width: 95vw;
-            height: 900px;
+            height: 925px;
+            padding-top: 110px;
 
             p {
                 font-size: 16px;
-                margin-bottom: 7px;
+                margin-bottom: 0px;
             }
 
             img {
-                display: none;
-                height: 350px;
-                top: 375px;
-                left: 42vw;
+                object-fit: cover;
+                object-position: top;
+                width: 235px;
+                height: 145px;
+                top: -45px;
+                left: 50%;
+                filter: drop-shadow(0 1px 0 #363636);
+                transform: translateX(-50%);
             }
         }
     }

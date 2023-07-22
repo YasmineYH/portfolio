@@ -134,6 +134,7 @@ form {
                 border: 1px solid #36363600;
                 font-weight: 500;
                 font-size: 15px;
+                -webkit-appearance: none;
                 -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
                         box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
                 -webkit-transition: .5s ease-out;

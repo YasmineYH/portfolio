@@ -75,7 +75,7 @@ export default {
 }
 
 html {
-	scrollbar-color: #FFE4D5 #363636;
+	scrollbar-color: #FFD6B1 #363636;
 	scrollbar-width: thin;
 
 	&::-webkit-scrollbar {
@@ -84,11 +84,11 @@ html {
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background: #FFE4D5;
+		background: #FFD6B1;
 	}
 
 	body {
-		background: #FFE4D5;
+		background: #FFD6B1;
 		width: 100%;
 		overflow-x: hidden;
 	}
@@ -154,6 +154,7 @@ html {
 		margin-top: 25px;
 		font-size: 14px;
 		max-width: 500px;
+		opacity: 0.6;
 	}
 
 	button {
@@ -209,7 +210,7 @@ html {
 			margin-top: 80px;
 
 			&.home-h1 {
-				margin-top: 135px;
+				margin-top: 100px;
 			}
 		}
 
@@ -219,13 +220,18 @@ html {
 		}
 
 		h4 {
-			font-size: 11px;
+			font-size: 12px;
 			line-height: 22px;
 		}
 
 		.normal-p {
 			font-size: 13px;
 			line-height: 20px;
+		}
+
+		.not-available {
+			max-width: 90%;
+			opacity: 0.6;
 		}
 	}
 
@@ -250,7 +256,7 @@ html {
 		height: calc(100 * var(--vh));
 		z-index: 100000;
 		background: #363636;
-		background: #FFE4D5;
+		background: #FFD6B1;
 		-webkit-transition: 1s ease-out;
 		-o-transition: 1s ease-out;
 		transition: 1s ease-out;
@@ -266,7 +272,7 @@ html {
 				width: 6px;
 				height: 25px;
 				border-radius: 20px;
-				background: #FFE4D5;
+				background: #FFD6B1;
 				background: #363636;
 				margin-top: auto;
 				-webkit-transform-origin: bottom;
@@ -427,11 +433,11 @@ html {
 }
 
 /* ROUTE TRANSITIONS */
-.route-enter-from {
+/*.route-enter-from {
 	opacity: 0;
-	-webkit-transform: scaleX(.9);
-		-ms-transform: scaleX(.9);
-			transform: scaleX(.9);
+	-webkit-transform: scaleX(.6) scaleY(.5) translateY(-1000px);
+		-ms-transform: scaleX(.6) scaleY(.5) translateY(-1000px);
+			transform: scaleX(.6) scaleY(.5) translateY(-1000px);
 }
 
 .route-enter-active {
@@ -448,5 +454,5 @@ html {
 	-webkit-transition: all .3s ease-in-out;
 		-o-transition: all .3s ease-in-out;
 		transition: all .3s ease-in-out;
-}
+}*/
 </style>

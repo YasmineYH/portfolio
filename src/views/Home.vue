@@ -2,38 +2,32 @@
 	<div class="home">
 		<h1 class="home-h1">Web |  UI Developer</h1>
 
-		<transition name="header" mode="out-in">
-			<div class="header-graphic">
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
-					<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
-					<span class="tooltip-text">UI Only</span>
-				</router-link>
+		<div class="header-graphic">
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/yasso`} : { name: 'Project', params: { projectId: `yasso`}}">
+				<img :src="require('@/assets/project-images/yasso.png')" alt="Yasso Project Image">
+				<span class="tooltip-text">UI Only</span>
+			</router-link>
 
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/healthic`} : { name: 'Project', params: { projectId: `healthic`}}">
-					<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
-					<span class="tooltip-text">UI and Frontend (Vue.js)</span>
-				</router-link>
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/healthic`} : { name: 'Project', params: { projectId: `healthic`}}">
+				<img :src="require('@/assets/project-images/healthic.png')" alt="Healthic Project Image">
+				<span class="tooltip-text">UI and Frontend (Vue.js)</span>
+			</router-link>
 
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/bicm`} : { name: 'Project', params: { projectId: `bicm`}}">
-					<img :src="require('@/assets/project-images/bicm.png')" alt="Bicm Project Image">
-					<span class="tooltip-text">UI and Frontend (Html5/Css3)</span>
-				</router-link>
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/bicm`} : { name: 'Project', params: { projectId: `bicm`}}">
+				<img :src="require('@/assets/project-images/bicm.png')" alt="Bicm Project Image">
+				<span class="tooltip-text">UI and Frontend (Html5/Css3)</span>
+			</router-link>
 
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/chefart`} : { name: 'Project', params: { projectId: `chefart`}}">
-					<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
-					<span class="tooltip-text">UI Only</span>
-				</router-link>
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/chefart`} : { name: 'Project', params: { projectId: `chefart`}}">
+				<img :src="require('@/assets/project-images/chefart.png')" alt="Chefart Project Image">
+				<span class="tooltip-text">UI Only</span>
+			</router-link>
 
-				<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/goodpie`} : { name: 'Project', params: { projectId: `goodpie`}}">
-					<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
-					<span class="tooltip-text">UI Only</span>
-				</router-link>
-			</div>
-		</transition>
-
-		<!--<div class="header-loading" v-if="!loaded">
-			<h1>Images loading...</h1>
-		</div>-->
+			<router-link class="link tooltip" :to="route.includes('/upwork') ? { path: `/upwork/project/goodpie`} : { name: 'Project', params: { projectId: `goodpie`}}">
+				<img :src="require('@/assets/project-images/goodpie.png')" alt="Goodpie Project Image">
+				<span class="tooltip-text">UI Only</span>
+			</router-link>
+		</div>
 
 		<div class="tools">
 			<ToolCard v-for="(tool, index) in tools" :key="index" :tool="tool" />
@@ -192,16 +186,6 @@ export default {
 			quote_message.value = ''
 		}
 
-
-		//const loaded = ref(false)
-
-		/*onMounted( () => {
-			console.log('MOUNTED')
-			setTimeout(() => {
-				loaded.value = true
-			}, 1000);
-		})*/
-
 		return  {
 			tools,
 			projects,
@@ -216,7 +200,6 @@ export default {
 			quote_email,
 			quote_message,
 			sendEmail,
-			//loaded,
 		}
 	}
 }
@@ -224,29 +207,6 @@ export default {
 
 
 <style lang="scss" scoped>
-.header-enter-from,
-.header-leave-to {
-	opacity: 0;
-	-webkit-transform: translate(0, 500px);
-		-ms-transform: translate(0, 500px);
-			transform: translate(0, 500px);
-}
-
-.header-enter-active,
-.header-leave-active {
-	-webkit-transition: all .5s ease-out;
-		-o-transition: all .5s ease-out;
-			transition: all .5s ease-out;
-}
-
-.header-enter-to,
-.header-leave-from {
-	opacity: 1;
-	-webkit-transform: translate(0, 0);
-		-ms-transform: translate(0, 0);
-			transform: translate(0, 0);
-}
-
 .header-graphic {
 	position: relative;
 	width: 100%;
@@ -405,7 +365,7 @@ export default {
 
 	@media (max-width: 640px) {
 		height: 435px;
-		margin-top: 125px;
+		margin-top: 100px;
 
 		.link {
 			width: calc((100%/5) + 8vw);
@@ -553,8 +513,8 @@ export default {
 	}
 
 	@media (max-width: 640px) {
-		height: 905px;
-		margin-top: 150px;
+		height: 930px;
+		margin-top: 195px;
 		-webkit-box-pack: unset;
 			-ms-flex-pack: unset;
 				justify-content: unset;
@@ -573,8 +533,9 @@ export default {
 			}
 
 			&.left {
-				gap: 55px;
+				gap: 45px;
 				text-align: center;
+				margin-top: 200px;
 
 				div:nth-child(1),
 				div:nth-child(2),
@@ -589,13 +550,13 @@ export default {
 			}
 
 			&.right {
-				gap: 55px;
+				gap: 45px;
 				text-align: center;
 			}
 
 			div {
 				h4 {
-					margin-bottom: 2px;
+					margin-bottom: 5px;
 				}
 			}
 		}
@@ -874,6 +835,7 @@ export default {
 				border: 1px solid #36363600;
 				font-weight: 500;
 				font-size: 15px;
+                -webkit-appearance: none;
                 -webkit-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
                         box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
 				-webkit-transition: .5s ease-out;
@@ -934,6 +896,9 @@ export default {
 	}
 
 	@media (max-width: 640px) {
+		form {
+			padding: 35px 0;
+		}
 		margin-top: 150px;
 	}
 }

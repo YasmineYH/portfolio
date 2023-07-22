@@ -27,7 +27,7 @@
                         <div v-for="(type, index) in state.project.type" :key="index" :style="type">{{ type.substring(13) }} <span :style="type">- Aa Bb Cc Dd Ff</span></div>
                     </div>
                 </div>
-            </div>¨
+            </div>
 
             <transition name="projectimg" appear>
                 <img :src="require(`@/assets/project-displays/${state.project.alias}.png`)" alt="Bicm Project Display">
@@ -130,7 +130,7 @@ export default {
             -webkit-box-direction: normal;
                 -ms-flex-direction: column;
                     flex-direction: column;
-            gap: 100px;
+            gap: 35px;
             width: 335px;
             margin-top: 105px;
 
@@ -303,7 +303,7 @@ export default {
 
         .project-ctn {
             .left {
-                gap: 65px;
+                gap: 25px;
             }
 
             img {
@@ -337,7 +337,7 @@ export default {
     }
 
     @media (max-width: 640px) {
-		margin-top: 135px;
+		margin-top: 105px;
 
         h3 {
             font-size: 20px;
